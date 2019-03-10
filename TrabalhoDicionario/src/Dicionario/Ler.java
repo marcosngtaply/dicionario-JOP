@@ -3,7 +3,7 @@ package Dicionario;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-/* Bruna Linda */
+
 public class Ler {
 
 	private String nomeArq;
@@ -23,7 +23,9 @@ public class Ler {
 		
 		try {
 			FileReader localArq = new FileReader(nomeArq);
+			//para entrada baseada em caracteres de um arquivo.
 			BufferedReader leitorDeLinhas = new BufferedReader(localArq);
+			//leitor de linhas do arquivo de entrada(FileReader(nomeArq)
 			
 			String linha = " "; 
 			linha = leitorDeLinhas.readLine();
@@ -53,9 +55,6 @@ public class Ler {
 			System.out.println(vetorTxt[i]);
 		}
 		System.out.println(vetorTxt.length);
-	}
-	public void VerConteudo() {
-		
 	}
 	
 	public String getNomeArq() {
