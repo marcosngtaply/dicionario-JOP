@@ -71,7 +71,8 @@ public class Ler {
 		/*long tempo = System.nanoTime();
 		System.out.println(tempo);
 		long tempoMili = System.currentTimeMillis();
-		System.out.println(tempoMili);*/
+		System.out.println(tempoMili);
+		Código que conta o tempo, ainda precisando de uma forma de implementação*/
 	}
 	public void setVetorTxt(String[] vetorTxt) {
 		this.vetorTxt = vetorTxt;
