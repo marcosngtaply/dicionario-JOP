@@ -3,7 +3,7 @@ package Dicionario;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-
+/* Bruna Linda */
 public class Ler {
 
 	private String nomeArq;
