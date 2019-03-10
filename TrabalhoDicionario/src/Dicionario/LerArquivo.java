@@ -4,21 +4,23 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class Ler {
+public class LerArquivo {
 
-	private String nomeArq;
+	private String nomeArq;//Endereço do arquivo no computador
 	private String[] vetorTxt;
 	private int tamanhoVetor;
 	
-	public Ler(String nomeArq, String[] vetorTxt, int tamanhoVetor) {
+	public LerArquivo(String nomeArq, String[] vetorTxt, int tamanhoVetor) {
 		this.nomeArq = nomeArq;
 		this.vetorTxt = vetorTxt;
 		this.tamanhoVetor = tamanhoVetor;
 		
 	}
-	public Ler() {
+
+	public LerArquivo() {
 		
 	}
+
 	public String[] CriarVetor() {
 		
 		try {
@@ -34,7 +36,7 @@ public class Ler {
 			
 			vetorTxt = new String[tamanhoVetor + 1];
 			/*esse +1 vem por conta do arquivo ter uma linha a mais justamente 
-			 *por informar a quantia de linhas do vetor.*/
+			  por informar a quantia de linhas do vetor.*/
 			int i = 0;
 			
 				while(linha != null) {
