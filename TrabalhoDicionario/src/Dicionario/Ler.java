@@ -28,6 +28,7 @@ public class Ler {
 			//leitor de linhas do arquivo de entrada(FileReader(nomeArq)
 			
 			String linha = " "; 
+			//Variável para receber as linhas comop Strings
 			linha = leitorDeLinhas.readLine();
 			tamanhoVetor = Integer.parseInt(linha);
 			
