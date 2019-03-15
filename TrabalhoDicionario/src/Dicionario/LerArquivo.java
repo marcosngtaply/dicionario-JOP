@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+import javax.swing.JOptionPane;
+
 public class LerArquivo {
 
 	private String nomeArq;//Endereço do arquivo no computador
@@ -50,6 +52,7 @@ public class LerArquivo {
 	        System.out.println("Erro na leitura do arquivo: " + 
 	                e.getMessage());
 	    }
+		JOptionPane.showMessageDialog(null, "Arquivo lido e vetor criado com sucesso!");
 		return vetorTxt;
 		}
 		
