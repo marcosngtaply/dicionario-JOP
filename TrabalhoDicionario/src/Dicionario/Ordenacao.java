@@ -1,7 +1,7 @@
 package Dicionario;
 
 public class Ordenacao {
-
+// String path = "./arquivos/teste.txt"; //
 	private String[] vetorOrdenado;
 	
 
@@ -15,8 +15,8 @@ public class Ordenacao {
 	}
 
 	public String[] SelectionSort(String[] vetor){
-		// Find the string reference that should go in each cell of
-	    // the array, from cell 0 to the end
+	// Find the string reference that should go in each cell of
+	// the array, from cell 0 to the end
 	    for (int j = 0; j < vetor.length-1; j++){
 	      // Find min: the index of the string reference that should go into cell j.
 	      // Look through the unsorted strings (those at j or higher) for the one that is first in lexicographic order
