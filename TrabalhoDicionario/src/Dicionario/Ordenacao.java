@@ -1,7 +1,7 @@
 package Dicionario;
 
 public class Ordenacao {
-
+// String path = "./arquivos/teste.txt"; //
 	private String[] vetorOrdenado;
 	
 
