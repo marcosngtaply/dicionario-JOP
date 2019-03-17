@@ -34,7 +34,7 @@ public class LerArquivo {
 			String linha = " "; 
 			//Variável para receber as linhas comop Strings
 			linha = leitorDeLinhas.readLine();
-			tamanhoVetor = Integer.parseInt(linha);
+			this.tamanhoVetor = Integer.parseInt(linha);
 			
 			vetorTxt = new String[tamanhoVetor + 1];
 			/*esse +1 vem por conta do arquivo ter uma linha a mais justamente 
@@ -48,11 +48,13 @@ public class LerArquivo {
 				}
 				
 		localArq.close();
+		JOptionPane.showMessageDialog(null,"Arquivo lido e vetor criado com sucesso!");
+		
 		}catch (IOException e) {
-	        System.out.println("Erro na leitura do arquivo: " + 
+			JOptionPane.showMessageDialog(null,"Erro na leitura do arquivo: " + 
 	                e.getMessage());
 	    }
-		JOptionPane.showMessageDialog(null, "Arquivo lido e vetor criado com sucesso!");
+		
 		return vetorTxt;
 		}
 		
@@ -60,7 +62,7 @@ public class LerArquivo {
 		for(int i = 0; i < posicao; i++) {
 			System.out.println(vetorTxt[i]);
 		}
-		System.out.println(vetorTxt.length);
+		
 	}
 	
 	public String getNomeArq() {
