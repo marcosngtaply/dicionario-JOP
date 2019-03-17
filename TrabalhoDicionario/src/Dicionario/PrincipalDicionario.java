@@ -19,8 +19,9 @@ public class PrincipalDicionario {
 		ordeBubble.MostrarOrdenacao();*/
 		
 		Ordenacao ordeQuick = new Ordenacao();
-		//ordeQuick.MostrarOrdenacao();
-		ordeQuick.quickSort(ordeQuick.QuickSort(arq1.CriarVetor(), 0, arq1.getTamanhoVetor() - 1));
+		ordeQuick.QuickSort(arq1.CriarVetor(), 0, arq1.getTamanhoVetor() - 1);
+		ordeQuick.MostrarOrdenacao();
+		
 	}
 
 }
