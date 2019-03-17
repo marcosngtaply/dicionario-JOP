@@ -7,6 +7,8 @@ import java.io.IOException;
 import javax.swing.JOptionPane;
 
 public class LerArquivo {
+	
+	//teste
 
 	private String nomeArq;//Endereço do arquivo no computador
 	private String[] vetorTxt;
