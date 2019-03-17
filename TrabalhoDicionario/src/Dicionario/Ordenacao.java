@@ -74,7 +74,51 @@ public class Ordenacao {
          return vetorTxt;
 	}
 	
-	public String[] QuickSort(String[] vetorTxt,int inicio,int fim){
+    public void quickSort(String[] array) {
+        if (array != null) {
+        	QuickSort(array, 0, array.length - 2);
+        }
+        
+        
+    }
+    
+    public String[] QuickSort(String[] vetorTxt, int start, int end) {
+        if (start < end) {
+            int pivotIndex = Partition(vetorTxt, start, end);
+            printArray(vetorTxt, 0, vetorTxt.length - 2);
+            QuickSort(vetorTxt, start, pivotIndex - 1);
+            QuickSort(vetorTxt, pivotIndex + 1, end);
+        }
+        return vetorTxt;
+    }
+    
+    /* Must use "Lomuto Partition" scheme (which isn't very efficient) from Wikipedia:
+       https://en.wikipedia.org/wiki/Quicksort#Lomuto_partition_scheme */
+    public int Partition(String[] A, int lo, int hi) {
+        String pivot = A[hi];
+        int i = lo - 1;
+        for(int j = lo; j < hi - 1; j++) {
+            if (A[j].length() <= pivot.length()) {
+                i++;
+                swap(A, i , j);
+            }
+        }
+        swap(A, i + 1, hi);
+        return i + 1;
+    }
+    
+    public void swap(String[] array, int i, int j) {
+        String temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+    public void printArray(String[] array, int start, int end) {
+        for (int i = start; i < array.length - 1; i++) {
+            System.out.println(array[i]);
+        }
+    }
+	
+	/*public String[] QuickSort(String[] vetorTxt,int inicio,int fim){
         int esq = inicio;
         int dir = fim;
         String pivo = vetorTxt[(esq + dir) / 2];
