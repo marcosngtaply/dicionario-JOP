@@ -8,7 +8,8 @@ public class Ordenacao {
 	private double tempoExecucaoNano, tempoExecucaoMili;
 	
 
-	public Ordenacao(String[] vetorOrdenado, double tempoExecucaoNano) {
+	public Ordenacao(String[] vetorOrdenado, double tempoExecucaoNano, double tempoExecucaoMili) {
+		
 		this.vetorOrdenado = vetorOrdenado;
 		this.tempoExecucaoNano = tempoExecucaoNano;
 		this.tempoExecucaoMili = tempoExecucaoMili;
@@ -20,6 +21,7 @@ public class Ordenacao {
 	}
 
 	public String[] SelectionSort(String[] vetorTxt){
+		
 		long tempoNanoInicial = System.nanoTime();
 		long tempoMiliInicial = System.currentTimeMillis();
 	    for (int i = 0; i < vetorTxt.length - 2; i++){
@@ -69,6 +71,7 @@ public class Ordenacao {
 		 return vetorTxt;
 	 }
 	 public String[] BubbleSort(String[] vetorTxt){
+		
 		 long tempoNanoInicial = System.nanoTime();
 		 long tempoMiliInicial = System.currentTimeMillis();
 		 boolean troca = true;
