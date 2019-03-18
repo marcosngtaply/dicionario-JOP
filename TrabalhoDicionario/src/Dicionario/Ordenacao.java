@@ -1,7 +1,7 @@
 package Dicionario;
 
 import java.util.Arrays;
-
+//uhudhuhsudhsuh
 public class Ordenacao {
 
 	private String[] vetorOrdenado;
