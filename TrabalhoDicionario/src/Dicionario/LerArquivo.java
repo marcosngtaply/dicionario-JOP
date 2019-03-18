@@ -56,8 +56,9 @@ public class LerArquivo {
 			JOptionPane.showMessageDialog(null,"Erro na leitura do arquivo: " + 
 	                e.getMessage());
 	    }
-		
+		this.tamanhoVetor = vetorTxt.length;
 		return vetorTxt;
+		
 		}
 		
 	public void VerPosicao(int posicao) {
@@ -73,10 +74,8 @@ public class LerArquivo {
 	public void setNomeArq(String nomeArq) {
 		this.nomeArq = nomeArq;
 	}
-	public void getVetorTxt() {
-		for(int i = 0; i < vetorTxt.length - 1; i++) {
-			System.out.println(vetorTxt[i]);
-		}
+	public String[] getVetorTxt() {
+		return vetorTxt;
 		/*long tempo = System.nanoTime();
 		System.out.println(tempo);
 		long tempoMili = System.currentTimeMillis();
