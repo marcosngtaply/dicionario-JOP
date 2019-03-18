@@ -3,14 +3,15 @@ package Dicionario;
 import java.util.Arrays;
 
 public class Ordenacao {
-// String path = "./arquivos/teste.txt"; //
+
 	private String[] vetorOrdenado;
-	private double tempoExecucao;
+	private double tempoExecucaoNano, tempoExecucaoMili;
 	
 
-	public Ordenacao(String[] vetorOrdenado, double tempoExecucao) {
+	public Ordenacao(String[] vetorOrdenado, double tempoExecucaoNano) {
 		this.vetorOrdenado = vetorOrdenado;
-		this.tempoExecucao = tempoExecucao;
+		this.tempoExecucaoNano = tempoExecucaoNano;
+		this.tempoExecucaoMili = tempoExecucaoMili;
 		
 	}
 	
@@ -19,7 +20,8 @@ public class Ordenacao {
 	}
 
 	public String[] SelectionSort(String[] vetorTxt){
-		
+		long tempoNanoInicial = System.nanoTime();
+		long tempoMiliInicial = System.currentTimeMillis();
 	    for (int i = 0; i < vetorTxt.length - 2; i++){
 	      // primeiro (for) Percorre o vetor até 2 indices antes do fim pois a ultima linha esta nula
 	      // segundo (for) Percorre o vetor até 1 indice antes do fim
@@ -34,12 +36,19 @@ public class Ordenacao {
 	    	  vetorTxt[min] = temporaria;
 	      }
 	    }
+	    long tempoNanoFinal = System.nanoTime();
+		long tempoMiliFinal = System.currentTimeMillis();
+		this.tempoExecucaoMili = tempoMiliFinal - tempoMiliInicial;
+	    this.tempoExecucaoNano = tempoNanoFinal - tempoNanoInicial;
 	    this.vetorOrdenado = vetorTxt;
 	    return vetorTxt;
 	    
 	 }
 	 public String[] IncertionSort(String[] vetorTxt) {
-	
+		
+		 	long tempoNanoInicial = System.nanoTime();
+			long tempoMiliInicial = System.currentTimeMillis();
+
 			String chave;
 			int aux;
 			
@@ -52,11 +61,16 @@ public class Ordenacao {
 				}
 				vetorTxt[aux + 1] = chave;
 			}
-		    this.vetorOrdenado = vetorTxt;
-			return vetorTxt;
+		 long tempoNanoFinal = System.nanoTime();
+		 long tempoMiliFinal = System.currentTimeMillis();
+		 this.tempoExecucaoMili = tempoMiliFinal - tempoMiliInicial;
+		 this.tempoExecucaoNano = tempoNanoFinal - tempoNanoInicial;
+		 this.vetorOrdenado = vetorTxt;
+		 return vetorTxt;
 	 }
 	 public String[] BubbleSort(String[] vetorTxt){
-         
+		 long tempoNanoInicial = System.nanoTime();
+		 long tempoMiliInicial = System.currentTimeMillis();
 		 boolean troca = true;
          String aux;
          
@@ -72,16 +86,26 @@ public class Ordenacao {
                  }
              }
          }
+		 long tempoNanoFinal = System.nanoTime();
+		 long tempoMiliFinal = System.currentTimeMillis();
+		 this.tempoExecucaoMili = tempoMiliFinal - tempoMiliInicial;
+		 this.tempoExecucaoNano = tempoNanoFinal - tempoNanoInicial;
          this.vetorOrdenado = vetorTxt;
          return vetorTxt;
 	 }
      public void QuickSort(String[] vetorTxt, int inicio, int fim) {
+		long tempoNanoInicial = System.nanoTime();
+		long tempoMiliInicial = System.currentTimeMillis();
         if(inicio < fim) {
              int posicaoPivo = Separar(vetorTxt, inicio, fim);
              QuickSort(vetorTxt, inicio, posicaoPivo - 1);
              QuickSort(vetorTxt, posicaoPivo + 1, fim);
              
         }
+		long tempoNanoFinal = System.nanoTime();
+		long tempoMiliFinal = System.currentTimeMillis();
+		this.tempoExecucaoMili = tempoMiliFinal - tempoMiliInicial;
+		this.tempoExecucaoNano = tempoNanoFinal - tempoNanoInicial;
         this.vetorOrdenado = vetorTxt;
      }
      public int Separar(String[] vetorTxt, int inicio, int fim) {
@@ -196,13 +220,22 @@ public class Ordenacao {
 		 this.vetorOrdenado = vetorOrdenado;
 	 }
 
-	 public double getTempoExecucao() {
-		 return tempoExecucao;
+	 public double getTempoExecucaoNano() {
+		 return tempoExecucaoNano;
 	 }
 
-	 public void setTempoExecucao(double tempoExecucao) {
-		this.tempoExecucao = tempoExecucao;
+	 public void setTempoExecucaoNano(double tempoExecucaoNano) {
+		this.tempoExecucaoNano = tempoExecucaoNano;
 	 }
+
+	public double getTempoExecucaoMili() {
+		return tempoExecucaoMili;
+	}
+
+	public void setTempoExecucaoMili(double tempoExecucaoMili) {
+		this.tempoExecucaoMili = tempoExecucaoMili;
+	}
+	 
 
 }
 
