@@ -106,7 +106,7 @@ public class PrincipalDicionario {
 		
 		//TESTE COM SELECTION SORT
 		
-		/*JOptionPane.showMessageDialog(null, "Por favor aguarde o processamento das informações...", "Teste com SELECTION SORT", 1);
+		JOptionPane.showMessageDialog(null, "Por favor aguarde o processamento das informações...", "Teste com SELECTION SORT", 1);
 		
 		Ordenacao ordeSelection = new Ordenacao();
 		ordeSelection.SelectionSort(arq1.getVetorTxt());
@@ -129,8 +129,7 @@ public class PrincipalDicionario {
 		JOptionPane.showMessageDialog(null, "Milisegundos = " + buscaBinaria1.getTempoExecucaoMili()
 				+"\nNanosegundos = " + buscaBinaria1.getTempoExecucaoNano()
 				+"\nEquivalente a " + buscaBinaria1.getTempoExecucaoMili() / 1000 + " segundos",
-				"Tempo de Execução da Busca Binária", 3);*/
-		
+				"Tempo de Execução da Busca Binária", 3);
 		
 		//TESTE COM INCERTION SORT
 		
