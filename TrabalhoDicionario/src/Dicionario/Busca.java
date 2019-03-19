@@ -16,49 +16,53 @@ public class Busca {
 			}else {
 				
 			}
-				
+			long tempoNanoFinal = System.nanoTime();
+			long tempoMiliFinal = System.currentTimeMillis();	
+			this.tempoExecucaoMili = tempoMiliFinal - tempoMiliInicial;
+		    this.tempoExecucaoNano = tempoNanoFinal - tempoNanoInicial;
 		}
-		long tempoNanoFinal = System.nanoTime();
-		long tempoMiliFinal = System.currentTimeMillis();
-		this.tempoExecucaoMili = tempoMiliFinal - tempoMiliInicial;
-	    this.tempoExecucaoNano = tempoNanoFinal - tempoNanoInicial;
 		return "Palavra não encontrada ou não existe no vetor";
 	}
 	
 	public String BuscaBinaria(String[] vetorOrdenado, String palavra) {
 		
-		long tempoNanoInicial = System.nanoTime();
-		long tempoMiliInicial = System.currentTimeMillis();
-		
 		int meio;
 		int inicioVet = 0;
 		int fimVet = vetorOrdenado.length - 1;
-		
-		
+		long tempoNanoInicial = System.nanoTime();
+		long tempoMiliInicial = System.currentTimeMillis();
+	
 		while(inicioVet <= fimVet) {
 			meio = (inicioVet + fimVet) / 2;
+			
 			if(palavra.length() == vetorOrdenado[meio].length()) {
-				do {
-				if(palavra.equals(vetorOrdenado[meio])) {
-					return "Palavra" + vetorOrdenado[meio] + " encontrada no Vetor, no indice" 
-						+ meio + " do vetor.";
-					}else {
-						
-						meio++;
+				
+				for(int i = meio; i < fimVet; i++) {
+					if(palavra.equals(vetorOrdenado[i])) {
+						return "Palavra (" + vetorOrdenado[i] + ") encontrada!!\nLocalizada no índice " 
+								+ i + " do vetor.";
 					}
-				}while(palavra.length() == vetorOrdenado[meio].length());
-				if(palavra.length() > vetorOrdenado[meio].length()) {
-					meio--;
+				}
+				
+				for(int i = meio - 1; i > inicioVet; i--) {
+					if(palavra.equals(vetorOrdenado[i])) {
+						return "Palavra (" + vetorOrdenado[i] + ") encontrada!!\nLocalizada no índice " 
+								+ i + " do vetor.";
+					}
 				}
 			}
-			if(vetorOrdenado[meio].length() < palavra.length()) {
+			else if(vetorOrdenado[meio].length() < palavra.length()) {
 				inicioVet = meio + 1;
 			}
 			else if(vetorOrdenado[meio].length() > palavra.length()) {
 				fimVet = meio - 1;
 			}
+			long tempoNanoFinal = System.nanoTime();
+			long tempoMiliFinal = System.currentTimeMillis();	
+			this.tempoExecucaoMili = tempoMiliFinal - tempoMiliInicial;
+		    this.tempoExecucaoNano = tempoNanoFinal - tempoNanoInicial;
 		}
-		return "Não encontrada";
+		return "Palavra não existe no vetor";
 	}
 	public Busca(double tempoExecucaoNano, double tempoExecucaoMili) {
 		

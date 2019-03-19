@@ -113,12 +113,18 @@ public class Ordenacao {
      }
      public int Separar(String[] vetorTxt, int inicio, int fim) {
         	String pivo = vetorTxt[inicio];
+        	
         	int i = inicio + 1, f = fim;
+        	
         	while(i <= f) {
-        		if(vetorTxt[i].length() <= pivo.length())
+        		if(vetorTxt[i].length() <= pivo.length()) {
         			i++;
-        		else if (pivo.length() < vetorTxt[f].length())
+        		}
+        			
+        		else if(pivo.length() < vetorTxt[f].length()) {
         			f--;
+        		}
+        			
         		else {
         			String troca = vetorTxt[i];
         			vetorTxt[i] = vetorTxt[f];
@@ -210,7 +216,7 @@ public class Ordenacao {
 
 	 public void MostrarOrdenacao() {
 		 for(int o = 0; o < vetorOrdenado.length - 1; o++) {
-			 System.out.println(vetorOrdenado[o]);
+			 System.out.println(vetorOrdenado[o] + " |" + vetorOrdenado[o].length());
 		 }
 		
 	 }

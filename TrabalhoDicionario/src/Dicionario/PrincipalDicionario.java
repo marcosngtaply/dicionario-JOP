@@ -2,6 +2,8 @@ package Dicionario;
 
 import java.util.Arrays;
 
+import javax.swing.JOptionPane;
+
 public class PrincipalDicionario {
 	
 	/*public static void mergeSort(int[] vetor,int[] vetorAuxiliar, int inicio, int fim) {
@@ -100,19 +102,119 @@ public class PrincipalDicionario {
 		LerArquivo arq1 = new LerArquivo();
 		arq1.setNomeArq("./ArquivosTxt/DicionarioIngles.txt");
 		arq1.CriarVetor();
+		
+		
+		//TESTE COM SELECTION SORT
+		
+		/*JOptionPane.showMessageDialog(null, "Por favor aguarde o processamento das informações...", "Teste com SELECTION SORT", 1);
+		
 		Ordenacao ordeSelection = new Ordenacao();
 		ordeSelection.SelectionSort(arq1.getVetorTxt());
-		//ordeSelection.MostrarOrdenacao();
-		System.out.println("Executado em "+ ordeSelection.getTempoExecucaoMili() + " Milisegundos.");
-		System.out.println("Executado em "+ ordeSelection.getTempoExecucaoNano() + " Nanosegundos.");
-		System.out.println("Equivale aproximadamente " + ordeSelection.getTempoExecucaoMili() / 1000 + " segundos" );
+		JOptionPane.showMessageDialog(null, "Milisegundos = "+ ordeSelection.getTempoExecucaoMili()
+				+ "\nNanosegundos = "+ ordeSelection.getTempoExecucaoNano()
+				+ "\nEquivalente a " + ordeSelection.getTempoExecucaoMili() / 1000 + " segundos", 
+				"Tempo de Execução da Ordenação com SelectionSort", 3);
+		
 		Busca buscaSequencial1 = new Busca();
+		JOptionPane.showMessageDialog(null, buscaSequencial1.BuscaSequencial(ordeSelection.getVetorOrdenado(), "counterrevolutionary/SM"), 
+				"Relatório de Busca Sequencial", 3);
+		JOptionPane.showMessageDialog(null, "Milisegundos = " + buscaSequencial1.getTempoExecucaoMili()
+				+"\nNanosegundos = " + buscaSequencial1.getTempoExecucaoNano()
+				+"\nEquivalente a " + buscaSequencial1.getTempoExecucaoMili() / 1000 + " segundos",
+				"Tempo de Execução da Busca Sequencial", 3);
+		
 		Busca buscaBinaria1 = new Busca();
-		System.out.println(buscaSequencial1.BuscaSequencial(ordeSelection.getVetorOrdenado(), "maid/MNSX"));
-		System.out.println(ordeSelection.getVetorOrdenado().length);
-		System.out.println(buscaBinaria1.BuscaBinaria(ordeSelection.getVetorOrdenado(), "maid/MNSX"));
-		//System.out.println("Equivalente a " + ordeSelection.getTempoExecucaoNano() / 1000000000 + " segundos");
-
+		JOptionPane.showMessageDialog(null, buscaBinaria1.BuscaBinaria(ordeSelection.getVetorOrdenado(), "counterrevolution/SM"), 
+				"Relatório de Busca Binária", 3);
+		JOptionPane.showMessageDialog(null, "Milisegundos = " + buscaBinaria1.getTempoExecucaoMili()
+				+"\nNanosegundos = " + buscaBinaria1.getTempoExecucaoNano()
+				+"\nEquivalente a " + buscaBinaria1.getTempoExecucaoMili() / 1000 + " segundos",
+				"Tempo de Execução da Busca Binária", 3);*/
+		
+		
+		//TESTE COM INCERTION SORT
+		
+		/*JOptionPane.showMessageDialog(null, "Por favor aguarde o processamento das informações...", "Teste com INCERTION SORT", 1);
+		
+		Ordenacao ordeIncertion = new Ordenacao();
+		ordeIncertion.IncertionSort(arq1.getVetorTxt());
+		JOptionPane.showMessageDialog(null, "Milisegundos = "+ ordeIncertion.getTempoExecucaoMili()
+				+ "\nNanosegundos = "+ ordeIncertion.getTempoExecucaoNano()
+				+ "\nEquivalente a " + ordeIncertion.getTempoExecucaoMili() / 1000 + " segundos", 
+				"Tempo de Execução da Ordenação com IncertionSort", 3);
+		
+		Busca buscaSequencial2 = new Busca();
+		JOptionPane.showMessageDialog(null, buscaSequencial2.BuscaSequencial(ordeIncertion.getVetorOrdenado(), "counterrevolution/SM"), 
+				"Relatório de Busca Sequencial", 3);
+		JOptionPane.showMessageDialog(null, "Milisegundos = " + buscaSequencial2.getTempoExecucaoMili()
+				+"\nNanosegundos = " + buscaSequencial2.getTempoExecucaoNano()
+				+"\nEquivalente a " + buscaSequencial2.getTempoExecucaoMili() / 1000 + " segundos",
+				"Tempo de Execução da Busca Sequencial", 3);
+		
+		Busca buscaBinaria2 = new Busca();
+		JOptionPane.showMessageDialog(null, buscaBinaria2.BuscaBinaria(ordeIncertion.getVetorOrdenado(), "counterrevolutionary/SM"), 
+				"Relatório de Busca Binária", 3);
+		JOptionPane.showMessageDialog(null, "Milisegundos = " + buscaBinaria2.getTempoExecucaoMili()
+				+"\nNanosegundos = " + buscaBinaria2.getTempoExecucaoNano()
+				+"\nEquivalente a " + buscaBinaria2.getTempoExecucaoMili() / 1000 + " segundos",
+				"Tempo de Execução da Busca Binária", 3);*/
+		
+		//TESTE COM BUBBLE SORT
+		
+		/*JOptionPane.showMessageDialog(null, "Por favor aguarde o processamento das informações...", "Teste com BUBBLE SORT", 1);
+		
+		Ordenacao ordeBubble = new Ordenacao();
+		ordeBubble.BubbleSort(arq1.getVetorTxt());
+		JOptionPane.showMessageDialog(null, "Milisegundos = "+ ordeBubble.getTempoExecucaoMili()
+				+ "\nNanosegundos = "+ ordeBubble.getTempoExecucaoNano()
+				+ "\nEquivalente a " + ordeBubble.getTempoExecucaoMili() / 1000 + " segundos", 
+				"Tempo de Execução da Ordenação com BubbleSort", 3);
+		
+		Busca buscaSequencial3 = new Busca();
+		JOptionPane.showMessageDialog(null, buscaSequencial3.BuscaSequencial(ordeBubble.getVetorOrdenado(), "counterrevolution/SM"), 
+				"Relatório de Busca Sequencial", 3);
+		JOptionPane.showMessageDialog(null, "Milisegundos = " + buscaSequencial3.getTempoExecucaoMili()
+				+"\nNanosegundos = " + buscaSequencial3.getTempoExecucaoNano()
+				+"\nEquivalente a " + buscaSequencial3.getTempoExecucaoMili() / 1000 + " segundos",
+				"Tempo de Execução da Busca Sequencial", 3);
+		
+		Busca buscaBinaria3 = new Busca();
+		JOptionPane.showMessageDialog(null, buscaBinaria3.BuscaBinaria(ordeBubble.getVetorOrdenado(), "counterrevolutionary/SM"), 
+				"Relatório de Busca Binária", 3);
+		JOptionPane.showMessageDialog(null, "Milisegundos = " + buscaBinaria3.getTempoExecucaoMili()
+				+"\nNanosegundos = " + buscaBinaria3.getTempoExecucaoNano()
+				+"\nEquivalente a " + buscaBinaria3.getTempoExecucaoMili() / 1000 + " segundos",
+				"Tempo de Execução da Busca Binária", 3);*/
+		
+		
+		//TESTE COM QUICK SORT
+		
+		/*JOptionPane.showMessageDialog(null, "Por favor aguarde o processamento das informações...", "Teste com QUICK SORT", 1);
+		
+		Ordenacao ordeQuick = new Ordenacao();
+		ordeQuick.QuickSort(arq1.getVetorTxt(), 0, arq1.getTamanhoVetor() - 1);
+		JOptionPane.showMessageDialog(null, "Milisegundos = "+ ordeQuick.getTempoExecucaoMili()
+				+ "\nNanosegundos = "+ ordeQuick.getTempoExecucaoNano()
+				+ "\nEquivale aproximadamente " + ordeQuick.getTempoExecucaoMili() / 1000 + " segundos", 
+				"Tempo de Execução da Ordenação com QuickSort", 3);
+		
+		Busca buscaSequencial4 = new Busca();
+		JOptionPane.showMessageDialog(null, buscaSequencial4.BuscaSequencial(ordeQuick.getVetorOrdenado(), "counterrevolution/SM"), 
+				"Relatório de Busca Sequencial", 3);
+		JOptionPane.showMessageDialog(null, "Milisegundos = " + buscaSequencial4.getTempoExecucaoMili()
+				+"\nNanosegundos = " + buscaSequencial4.getTempoExecucaoNano()
+				+"\nEquivalente a " + buscaSequencial4.getTempoExecucaoMili() / 1000 + " segundos",
+				"Tempo de Execução da Busca Sequencial", 3);
+		
+		Busca buscaBinaria4 = new Busca();
+		JOptionPane.showMessageDialog(null, buscaBinaria4.BuscaBinaria(ordeQuick.getVetorOrdenado(), "counterrevolutionary/SM"), 
+				"Relatório de Busca Binária", 3);
+		JOptionPane.showMessageDialog(null, "Milisegundos = " + buscaBinaria4.getTempoExecucaoMili()
+				+"\nNanosegundos = " + buscaBinaria4.getTempoExecucaoNano()
+				+"\nEquivalente a " + buscaBinaria4.getTempoExecucaoMili() / 1000 + " segundos",
+				"Tempo de Execução da Busca Binária", 3);
+		
+		
 		/*Ordenacao ordeIncertion = new Ordenacao();
 		ordeIncertion.IncertionSort(arq1.CriarVetor());
 		ordeIncertion.MostrarOrdenacao();*/
@@ -121,9 +223,9 @@ public class PrincipalDicionario {
 		ordeBubble.BubbleSort(arq1.CriarVetor());
 		ordeBubble.MostrarOrdenacao();*/
 		
-		/*Ordenacao ordeQuick = new Ordenacao();
-		ordeQuick.QuickSort(arq1.CriarVetor(), 0, arq1.getTamanhoVetor() - 1);
-		ordeQuick.MostrarOrdenacao();*/
+		Ordenacao ordeQuick1 = new Ordenacao();
+		ordeQuick1.QuickSort(arq1.getVetorTxt(), 0, arq1.getTamanhoVetor() - 1);
+		ordeQuick1.MostrarOrdenacao();
 		
 		/*//Ordenacao ordeMerge = new Ordenacao();
 		int[] vetorTeste = {1,8,6,98,35,12,47,58,245,15};
