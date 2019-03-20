@@ -112,8 +112,8 @@ public class Ordenacao {
         this.vetorOrdenado = vetorTxt;
      }
      public int Separar(String[] vetorTxt, int inicio, int fim) {
-        	String pivo = vetorTxt[inicio];
         	
+    	 String pivo = vetorTxt[inicio];
         	int i = inicio + 1, f = fim;
         	
         	while(i <= f) {
@@ -121,7 +121,7 @@ public class Ordenacao {
         			i++;
         		}
         			
-        		else if(pivo.length() < vetorTxt[f].length()) {
+        		else if(vetorTxt[f].length() > pivo.length()) {
         			f--;
         		}
         			

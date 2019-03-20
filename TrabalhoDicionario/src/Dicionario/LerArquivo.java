@@ -1,7 +1,9 @@
 package Dicionario;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
 import javax.swing.JOptionPane;
@@ -59,7 +61,18 @@ public class LerArquivo {
 		this.tamanhoVetor = vetorTxt.length;
 		return vetorTxt;
 		
-		}
+	}
+  /*  public void EscritorTxt(String path) throws IOException {
+        
+    	BufferedWriter buffWrite = new BufferedWriter(new FileWriter(path));
+        String linha = "";
+       
+        linha = in.nextLine();
+        buffWrite.append(linha + "\n");
+        buffWrite.close();
+    }
+ 
+}*/
 		
 	public void VerPosicao(int posicao) {
 		for(int i = 0; i < posicao; i++) {
@@ -76,11 +89,7 @@ public class LerArquivo {
 	}
 	public String[] getVetorTxt() {
 		return vetorTxt;
-		/*long tempo = System.nanoTime();
-		System.out.println(tempo);
-		long tempoMili = System.currentTimeMillis();
-		System.out.println(tempoMili);
-		Código que conta o tempo, ainda precisando de uma forma de implementação*/
+		
 	}
 	public void setVetorTxt(String[] vetorTxt) {
 		this.vetorTxt = vetorTxt;

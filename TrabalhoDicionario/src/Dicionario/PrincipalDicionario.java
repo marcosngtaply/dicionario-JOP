@@ -6,7 +6,7 @@ import javax.swing.JOptionPane;
 
 public class PrincipalDicionario {
 	
-	/*public static void mergeSort(int[] vetor,int[] vetorAuxiliar, int inicio, int fim) {
+	public static void mergeSort(int[] vetor,int[] vetorAuxiliar, int inicio, int fim) {
 		if(inicio < fim) {
 			int meio = (inicio + fim) / 2;
 			mergeSort(vetor, vetorAuxiliar, inicio, meio);
@@ -63,7 +63,7 @@ public class PrincipalDicionario {
 			//System.out.print(vetorAuxiliar[i] + "|");
 		}
 		
-		for(int j = fim; j >= meio + 1; j--) {
+		for(int j = fim; j >= meio; j--) {
 			vetorAuxiliar[j] = vetor[j];
 			//System.out.print(vetorAuxiliar[j] + "-");
 		}
@@ -83,7 +83,7 @@ public class PrincipalDicionario {
 				direita--;
 			}
 			
-			/*else if(vetorAuxiliar[esquerda].length() < vetorAuxiliar[esquerda + 1].length()) {
+			else if(vetorAuxiliar[esquerda].length() < vetorAuxiliar[esquerda + 1].length()) {
 				vetor[k] = vetorAuxiliar[esquerda];
 				esquerda++;
 			}
@@ -95,7 +95,7 @@ public class PrincipalDicionario {
 			
 		}
 		
-	}*/
+	}
 
 	public static void main(String[] args) {
 		
@@ -106,7 +106,7 @@ public class PrincipalDicionario {
 		
 		//TESTE COM SELECTION SORT
 		
-		JOptionPane.showMessageDialog(null, "Por favor aguarde o processamento das informações...", "Teste com SELECTION SORT", 1);
+		/*JOptionPane.showMessageDialog(null, "Por favor aguarde o processamento das informações...", "Teste com SELECTION SORT", 1);
 		
 		Ordenacao ordeSelection = new Ordenacao();
 		ordeSelection.SelectionSort(arq1.getVetorTxt());
@@ -167,23 +167,23 @@ public class PrincipalDicionario {
 		JOptionPane.showMessageDialog(null, "Milisegundos = "+ ordeBubble.getTempoExecucaoMili()
 				+ "\nNanosegundos = "+ ordeBubble.getTempoExecucaoNano()
 				+ "\nEquivalente a " + ordeBubble.getTempoExecucaoMili() / 1000 + " segundos", 
-				"Tempo de Execução da Ordenação com BubbleSort", 3);
+				"Tempo de Execução da Ordenação com BubbleSort", 1);
 		
 		Busca buscaSequencial3 = new Busca();
 		JOptionPane.showMessageDialog(null, buscaSequencial3.BuscaSequencial(ordeBubble.getVetorOrdenado(), "counterrevolution/SM"), 
-				"Relatório de Busca Sequencial", 3);
+				"Relatório de Busca Sequencial", 1);
 		JOptionPane.showMessageDialog(null, "Milisegundos = " + buscaSequencial3.getTempoExecucaoMili()
 				+"\nNanosegundos = " + buscaSequencial3.getTempoExecucaoNano()
 				+"\nEquivalente a " + buscaSequencial3.getTempoExecucaoMili() / 1000 + " segundos",
-				"Tempo de Execução da Busca Sequencial", 3);
+				"Tempo de Execução da Busca Sequencial", 1);
 		
 		Busca buscaBinaria3 = new Busca();
 		JOptionPane.showMessageDialog(null, buscaBinaria3.BuscaBinaria(ordeBubble.getVetorOrdenado(), "counterrevolutionary/SM"), 
-				"Relatório de Busca Binária", 3);
+				"Relatório de Busca Binária", 1);
 		JOptionPane.showMessageDialog(null, "Milisegundos = " + buscaBinaria3.getTempoExecucaoMili()
 				+"\nNanosegundos = " + buscaBinaria3.getTempoExecucaoNano()
 				+"\nEquivalente a " + buscaBinaria3.getTempoExecucaoMili() / 1000 + " segundos",
-				"Tempo de Execução da Busca Binária", 3);*/
+				"Tempo de Execução da Busca Binária", 1);
 		
 		
 		//TESTE COM QUICK SORT
@@ -191,7 +191,7 @@ public class PrincipalDicionario {
 		/*JOptionPane.showMessageDialog(null, "Por favor aguarde o processamento das informações...", "Teste com QUICK SORT", 1);
 		
 		Ordenacao ordeQuick = new Ordenacao();
-		ordeQuick.QuickSort(arq1.getVetorTxt(), 0, arq1.getTamanhoVetor() - 1);
+		ordeQuick.QuickSort(arq1.getVetorTxt(), 0, arq1.getTamanhoVetor() - 2);
 		JOptionPane.showMessageDialog(null, "Milisegundos = "+ ordeQuick.getTempoExecucaoMili()
 				+ "\nNanosegundos = "+ ordeQuick.getTempoExecucaoNano()
 				+ "\nEquivale aproximadamente " + ordeQuick.getTempoExecucaoMili() / 1000 + " segundos", 
@@ -222,17 +222,17 @@ public class PrincipalDicionario {
 		ordeBubble.BubbleSort(arq1.CriarVetor());
 		ordeBubble.MostrarOrdenacao();*/
 		
-		Ordenacao ordeQuick1 = new Ordenacao();
-		ordeQuick1.QuickSort(arq1.getVetorTxt(), 0, arq1.getTamanhoVetor() - 1);
-		ordeQuick1.MostrarOrdenacao();
+		/*Ordenacao ordeQuick = new Ordenacao();
+		ordeQuick.QuickSort(arq1.getVetorTxt(), 0, arq1.getTamanhoVetor() - 2);
+		ordeQuick.MostrarOrdenacao();*/
 		
-		/*//Ordenacao ordeMerge = new Ordenacao();
+		/*Ordenacao ordeMerge = new Ordenacao();
 		int[] vetorTeste = {1,8,6,98,35,12,47,58,245,15};
 		int[] vetorTesteAuxiliar = new int[vetorTeste.length];
 		String[] vetorTeste2 = {"joao", "Maria", "Pedrolino", "Marcos", "Bruna", "Luana", "Alvida"};
 		String[] vetorTeste2Auxuliar = new String[vetorTeste2.length];
 		
-		mergeSortString(vetorTeste2, vetorTeste2Auxuliar, 0, vetorTeste.length - 1);
+		mergeSortString(vetorTeste2, vetorTeste2Auxuliar, 0, vetorTeste.length - 2);
 		
 		System.out.println(Arrays.toString(vetorTeste2));
 		//mergeSort(vetorTeste, vetorTesteAuxiliar, 0, vetorTeste.length - 1);

@@ -42,6 +42,7 @@ public class Busca {
 						return "Palavra (" + vetorOrdenado[i] + ") encontrada!!\nLocalizada no índice " 
 								+ i + " do vetor.";
 					}
+					break;
 				}
 				
 				for(int i = meio - 1; i > inicioVet; i--) {
@@ -49,6 +50,7 @@ public class Busca {
 						return "Palavra (" + vetorOrdenado[i] + ") encontrada!!\nLocalizada no índice " 
 								+ i + " do vetor.";
 					}
+					break;
 				}
 			}
 			else if(vetorOrdenado[meio].length() < palavra.length()) {
