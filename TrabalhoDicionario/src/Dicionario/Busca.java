@@ -9,12 +9,10 @@ public class Busca {
 		long tempoNanoInicial = System.nanoTime();
 		long tempoMiliInicial = System.currentTimeMillis();
 		
-		for(int i = 0; i <= vetorOrdenado.length; i++) {
+		for(int i = 0; i <= vetorOrdenado.length - 1; i++) {
 			if(palavra.equals(vetorOrdenado[i])) {
 				return "Palavra (" + vetorOrdenado[i] + ") encontrada!!\nLocalizada no índice " 
 				+ i + " do vetor.";
-			}else {
-				
 			}
 			long tempoNanoFinal = System.nanoTime();
 			long tempoMiliFinal = System.currentTimeMillis();	

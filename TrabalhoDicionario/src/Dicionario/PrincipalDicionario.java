@@ -99,7 +99,7 @@ public class PrincipalDicionario {
 
 	public static void main(String[] args) {
 		
-		LerArquivo arq1 = new LerArquivo();
+		/*LerArquivo arq1 = new LerArquivo();
 		arq1.setNomeArq("./ArquivosTxt/DicionarioIngles.txt");
 		arq1.CriarVetor();
 		
@@ -187,18 +187,21 @@ public class PrincipalDicionario {
 		
 		
 		//TESTE COM QUICK SORT
-		
+		LerArquivo arq2 = new LerArquivo();
+		arq2.setNomeArq("./ArquivosTxt/DicionarioEstoniano.txt");
+		arq2.CriarVetor();
+
 		JOptionPane.showMessageDialog(null, "Por favor aguarde o processamento das informações...", "Teste com QUICK SORT", 1);
 		
 		Ordenacao ordeQuick = new Ordenacao();
-		ordeQuick.QuickSort(arq1.getVetorTxt(), 0, arq1.getTamanhoVetor() - 2);
+		ordeQuick.QuickSort(arq2.getVetorTxt(), 0, arq2.getTamanhoVetor() - 2);
 		JOptionPane.showMessageDialog(null, "Milisegundos = "+ ordeQuick.getTempoExecucaoMili()
 				+ "\nNanosegundos = "+ ordeQuick.getTempoExecucaoNano()
 				+ "\nEquivale aproximadamente " + ordeQuick.getTempoExecucaoMili() / 1000 + " segundos", 
 				"Tempo de Execução da Ordenação com QuickSort", 3);
 		
 		Busca buscaSequencial4 = new Busca();
-		JOptionPane.showMessageDialog(null, buscaSequencial4.BuscaSequencial(ordeQuick.getVetorOrdenado(), "counterrevolution/SM"), 
+		JOptionPane.showMessageDialog(null, buscaSequencial4.BuscaSequencial(ordeQuick.getVetorOrdenado(), "abacallanada/VY"), 
 				"Relatório de Busca Sequencial", 3);
 		JOptionPane.showMessageDialog(null, "Milisegundos = " + buscaSequencial4.getTempoExecucaoMili()
 				+"\nNanosegundos = " + buscaSequencial4.getTempoExecucaoNano()
@@ -206,7 +209,7 @@ public class PrincipalDicionario {
 				"Tempo de Execução da Busca Sequencial", 3);
 		
 		Busca buscaBinaria4 = new Busca();
-		JOptionPane.showMessageDialog(null, buscaBinaria4.BuscaBinaria(ordeQuick.getVetorOrdenado(), "counterrevolutionary/SM"), 
+		JOptionPane.showMessageDialog(null, buscaBinaria4.BuscaBinaria(ordeQuick.getVetorOrdenado(), "adapun"), 
 				"Relatório de Busca Binária", 3);
 		JOptionPane.showMessageDialog(null, "Milisegundos = " + buscaBinaria4.getTempoExecucaoMili()
 				+"\nNanosegundos = " + buscaBinaria4.getTempoExecucaoNano()

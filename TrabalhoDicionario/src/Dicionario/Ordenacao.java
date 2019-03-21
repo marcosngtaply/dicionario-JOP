@@ -111,7 +111,7 @@ public class Ordenacao {
 
         if(inicio < fim) {
              int posicaoPivo = Separar(vetorTxt, inicio, fim);
-             QuickSort(vetorTxt, inicio, posicaoPivo - 1);
+             QuickSort(vetorTxt, inicio, posicaoPivo - 1);//aqui
              QuickSort(vetorTxt, posicaoPivo + 1, fim);
              
         }
@@ -149,8 +149,8 @@ public class Ordenacao {
           return f;
      }
      
-     /*public void mergeSort(String vetor[], int inicio, int fim) {
-         int meio, z;
+     public void mergeSort(String vetor[], int inicio, int fim) {
+         int meio;
          if (inicio < fim) {
              meio = (inicio + fim) / 2;
              mergeSort(vetor, inicio, meio);
@@ -179,10 +179,9 @@ public class Ordenacao {
                  vetor[k] = vetorB[j];
                  j = j - 1;
              }
-         
          }
      }
-     /*public void MergeSort(String[] vetorTxt, String[] vetorAuxiliar, int inicioVet, int fimVet) {
+     public void MergeSort(String[] vetorTxt, String[] vetorAuxiliar, int inicioVet, int fimVet) {
     	 if(inicioVet < fimVet) {
     		 int meioVet = (inicioVet + fimVet) / 2;
     		 MergeSort(vetorTxt, vetorAuxiliar, inicioVet, meioVet);
@@ -198,13 +197,11 @@ public class Ordenacao {
 		
 		 for(int i = inicioVet; i <= meioVet; i++) {
 			 vetorAuxiliar[i] = vetorTxt[i];
-			 System.out.println(vetorAuxiliar[i] + ", ");
 
 		 }
 		 
 		 for(int j = meioVet + 1; j <= fimVet + 1; j++) {
 			 vetorAuxiliar[j] = vetorTxt[j];
-			 System.out.println(vetorAuxiliar[j] + "|");
 
 		 }
 		 int indiceEsq = inicioVet;
@@ -220,10 +217,8 @@ public class Ordenacao {
 				 indiceDir--;
 				 
 			 }
-			 System.out.println(vetorTxt[k]);
 		 }
-		 //this.vetorOrdenado = vetorTxt;
-	 }*/
+	 }
 
 	 public void MostrarOrdenacao() {
 		 for(int o = 0; o < vetorOrdenado.length - 1; o++) {
