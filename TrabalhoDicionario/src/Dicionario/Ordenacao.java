@@ -1,6 +1,8 @@
 package Dicionario;
 
 import java.util.Arrays;
+
+import javax.swing.JOptionPane;
 //uhudhuhsudhsuh
 public class Ordenacao {
 
@@ -24,6 +26,7 @@ public class Ordenacao {
 		
 		long tempoNanoInicial = System.nanoTime();
 		long tempoMiliInicial = System.currentTimeMillis();
+		JOptionPane.showMessageDialog(null, "Por favor aguarde o processo de Ordenação...");
 	    for (int i = 0; i < vetorTxt.length - 2; i++){
 	      // primeiro (for) Percorre o vetor até 2 indices antes do fim pois a ultima linha esta nula
 	      // segundo (for) Percorre o vetor até 1 indice antes do fim
@@ -38,6 +41,7 @@ public class Ordenacao {
 	    	  vetorTxt[min] = temporaria;
 	      }
 	    }
+	    JOptionPane.showMessageDialog(null, "Ordenação concluída com sucesso!");
 	    long tempoNanoFinal = System.nanoTime();
 		long tempoMiliFinal = System.currentTimeMillis();
 		this.tempoExecucaoMili = tempoMiliFinal - tempoMiliInicial;

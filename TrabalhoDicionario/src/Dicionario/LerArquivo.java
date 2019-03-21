@@ -23,6 +23,9 @@ public class LerArquivo {
 		
 	}
 
+	public LerArquivo(String nomeArq) {
+		this.nomeArq = nomeArq;
+	}
 	public LerArquivo() {
 		
 	}
@@ -52,7 +55,7 @@ public class LerArquivo {
 				}
 				
 		localArq.close();
-		JOptionPane.showMessageDialog(null,"Arquivo lido e vetor criado com sucesso!");
+		JOptionPane.showMessageDialog(null,"Arquivo Dicionário lido e vetor criado com sucesso!");
 		
 		}catch (IOException e) {
 			JOptionPane.showMessageDialog(null,"Erro na leitura do arquivo: " + 
