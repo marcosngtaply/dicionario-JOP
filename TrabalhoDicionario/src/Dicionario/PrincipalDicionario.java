@@ -183,12 +183,12 @@ public class PrincipalDicionario {
 		JOptionPane.showMessageDialog(null, "Milisegundos = " + buscaBinaria3.getTempoExecucaoMili()
 				+"\nNanosegundos = " + buscaBinaria3.getTempoExecucaoNano()
 				+"\nEquivalente a " + buscaBinaria3.getTempoExecucaoMili() / 1000 + " segundos",
-				"Tempo de Execução da Busca Binária", 1);
+				"Tempo de Execução da Busca Binária", 1);*/
 		
 		
 		//TESTE COM QUICK SORT
 		
-		/*JOptionPane.showMessageDialog(null, "Por favor aguarde o processamento das informações...", "Teste com QUICK SORT", 1);
+		JOptionPane.showMessageDialog(null, "Por favor aguarde o processamento das informações...", "Teste com QUICK SORT", 1);
 		
 		Ordenacao ordeQuick = new Ordenacao();
 		ordeQuick.QuickSort(arq1.getVetorTxt(), 0, arq1.getTamanhoVetor() - 2);
@@ -216,17 +216,17 @@ public class PrincipalDicionario {
 		
 		/*Ordenacao ordeIncertion = new Ordenacao();
 		ordeIncertion.IncertionSort(arq1.CriarVetor());
-		ordeIncertion.MostrarOrdenacao();*/
+		ordeIncertion.MostrarOrdenacao();
 		
-		/*Ordenacao ordeBubble = new Ordenacao();
+		Ordenacao ordeBubble = new Ordenacao();
 		ordeBubble.BubbleSort(arq1.CriarVetor());
-		ordeBubble.MostrarOrdenacao();*/
+		ordeBubble.MostrarOrdenacao();
 		
-		/*Ordenacao ordeQuick = new Ordenacao();
+		Ordenacao ordeQuick = new Ordenacao();
 		ordeQuick.QuickSort(arq1.getVetorTxt(), 0, arq1.getTamanhoVetor() - 2);
-		ordeQuick.MostrarOrdenacao();*/
+		ordeQuick.MostrarOrdenacao();
 		
-		/*Ordenacao ordeMerge = new Ordenacao();
+		Ordenacao ordeMerge = new Ordenacao();
 		int[] vetorTeste = {1,8,6,98,35,12,47,58,245,15};
 		int[] vetorTesteAuxiliar = new int[vetorTeste.length];
 		String[] vetorTeste2 = {"joao", "Maria", "Pedrolino", "Marcos", "Bruna", "Luana", "Alvida"};

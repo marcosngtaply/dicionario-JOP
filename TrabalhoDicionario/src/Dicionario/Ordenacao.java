@@ -3,7 +3,7 @@ package Dicionario;
 import java.util.Arrays;
 
 import javax.swing.JOptionPane;
-//uhudhuhsudhsuh
+
 public class Ordenacao {
 
 	private String[] vetorOrdenado;
@@ -52,8 +52,9 @@ public class Ordenacao {
 	 }
 	 public String[] IncertionSort(String[] vetorTxt) {
 		
-		 	long tempoNanoInicial = System.nanoTime();
-			long tempoMiliInicial = System.currentTimeMillis();
+		long tempoNanoInicial = System.nanoTime();
+		long tempoMiliInicial = System.currentTimeMillis();
+		JOptionPane.showMessageDialog(null, "Por favor aguarde o processo de Ordenação...");
 
 			String chave;
 			int aux;
@@ -67,6 +68,7 @@ public class Ordenacao {
 				}
 				vetorTxt[aux + 1] = chave;
 			}
+		 JOptionPane.showMessageDialog(null, "Ordenação concluída com sucesso!");
 		 long tempoNanoFinal = System.nanoTime();
 		 long tempoMiliFinal = System.currentTimeMillis();
 		 this.tempoExecucaoMili = tempoMiliFinal - tempoMiliInicial;
@@ -78,6 +80,8 @@ public class Ordenacao {
 		
 		 long tempoNanoInicial = System.nanoTime();
 		 long tempoMiliInicial = System.currentTimeMillis();
+		 JOptionPane.showMessageDialog(null, "Por favor aguarde o processo de Ordenação...");
+
 		 boolean troca = true;
          String aux;
          
@@ -93,6 +97,7 @@ public class Ordenacao {
                  }
              }
          }
+		 JOptionPane.showMessageDialog(null, "Ordenação concluída com sucesso!");
 		 long tempoNanoFinal = System.nanoTime();
 		 long tempoMiliFinal = System.currentTimeMillis();
 		 this.tempoExecucaoMili = tempoMiliFinal - tempoMiliInicial;
@@ -103,12 +108,14 @@ public class Ordenacao {
      public void QuickSort(String[] vetorTxt, int inicio, int fim) {
 		long tempoNanoInicial = System.nanoTime();
 		long tempoMiliInicial = System.currentTimeMillis();
+
         if(inicio < fim) {
              int posicaoPivo = Separar(vetorTxt, inicio, fim);
              QuickSort(vetorTxt, inicio, posicaoPivo - 1);
              QuickSort(vetorTxt, posicaoPivo + 1, fim);
              
         }
+
 		long tempoNanoFinal = System.nanoTime();
 		long tempoMiliFinal = System.currentTimeMillis();
 		this.tempoExecucaoMili = tempoMiliFinal - tempoMiliInicial;
