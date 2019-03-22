@@ -72,25 +72,25 @@ public class LerArquivo {
 			BufferedWriter escrever = new BufferedWriter(endereco);
 	        String linha = "";
 	       
-	        try {
+	        
 	        	for(int i = 0; i < vetorOrdenado.length; i++) {
-	        	
+	        		try {
 	        		
 	        		System.out.println(vetorOrdenado[i] + "|" + vetorOrdenado[i].length() + "|");
 	        		linha = vetorOrdenado[i] + " |" + vetorOrdenado[i].length() + "|\n";
 	        		escrever.append(linha);
 	        		
 	            
-	        	}
-	        	escrever.close();
-	    	}catch (IOException e) { 
-	    			e.printStackTrace();
+	        		}
+	        		catch (IOException e) { 
+		    			e.printStackTrace();
+		    			
+	        		}
+	        		escrever.close();
 	        	
-	        }
+	        	}
 	        endereco.close();
 			JOptionPane.showMessageDialog(null,"VetorOrdenado salvo em Txt com sucesso!");
-
-	        
     	
     }
  	

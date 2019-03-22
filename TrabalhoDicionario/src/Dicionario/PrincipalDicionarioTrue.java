@@ -655,7 +655,6 @@ public class PrincipalDicionarioTrue {
 				escolhaGravar = JOptionPane.showOptionDialog(null, "Qual Ordenado deseja gravar em txt?", "Escolha de Dicionário", 
 						JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, opcoes, opcoes[0]);
 				if(escolhaGravar == 0) {
-					//dicAmericano.EscreverVetorTxt(ordeQuick.getVetorOrdenado(), arqInglesOrdenacao);
 
 				}
 			

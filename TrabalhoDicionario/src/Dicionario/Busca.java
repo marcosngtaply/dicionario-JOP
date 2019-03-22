@@ -49,7 +49,9 @@ public class Busca {
 								+ i + " do vetor.";
 					}
 				}
+				return "Palavra não existe no vetor";
 			}
+			
 			else if(vetorOrdenado[meio].length() < palavra.length()) {
 				inicioVet = meio + 1;
 			}
@@ -60,9 +62,9 @@ public class Busca {
 			long tempoMiliFinal = System.currentTimeMillis();	
 			this.tempoExecucaoMili = tempoMiliFinal - tempoMiliInicial;
 		    this.tempoExecucaoNano = tempoNanoFinal - tempoNanoInicial;
-		   
+		    
 		}
-		 return "Palavra não existe no vetor";
+		return " ";		 
 	}
 	public Busca(double tempoExecucaoNano, double tempoExecucaoMili) {
 		
