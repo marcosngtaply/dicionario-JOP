@@ -1,5 +1,6 @@
 package Dicionario;
 
+import java.io.IOException;
 import java.util.Arrays;
 
 import javax.swing.JOptionPane;
@@ -97,7 +98,7 @@ public class PrincipalDicionario {
 		
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		
 		/*LerArquivo arq1 = new LerArquivo();
 		arq1.setNomeArq("./ArquivosTxt/DicionarioIngles.txt");
@@ -187,6 +188,7 @@ public class PrincipalDicionario {
 		
 		
 		//TESTE COM QUICK SORT
+		String pathArquivo = "./ArquivosTxt/VetorOrdenadoIngles.txt";
 		LerArquivo arq2 = new LerArquivo();
 		arq2.setNomeArq("./ArquivosTxt/DicionarioLuxemburguista.txt");
 		arq2.CriarVetor();
@@ -199,7 +201,8 @@ public class PrincipalDicionario {
 				+ "\nNanosegundos = "+ ordeQuick.getTempoExecucaoNano()
 				+ "\nEquivale aproximadamente " + ordeQuick.getTempoExecucaoMili() / 1000 + " segundos", 
 				"Tempo de Execução da Ordenação com QuickSort", 3);
-		
+		arq2.EscreverVetorTxt(ordeQuick.getVetorOrdenado(), pathArquivo);
+
 		Busca buscaSequencial4 = new Busca();
 		JOptionPane.showMessageDialog(null, buscaSequencial4.BuscaSequencial(ordeQuick.getVetorOrdenado(), "abacallanada/VY"), 
 				"Relatório de Busca Sequencial", 3);
@@ -209,12 +212,16 @@ public class PrincipalDicionario {
 				"Tempo de Execução da Busca Sequencial", 3);
 		
 		Busca buscaBinaria4 = new Busca();
-		JOptionPane.showMessageDialog(null, buscaBinaria4.BuscaBinaria(ordeQuick.getVetorOrdenado(), "adapun"), 
+		JOptionPane.showMessageDialog(null, buscaBinaria4.BuscaBinaria(ordeQuick.getVetorOrdenado(), "Aarbechtslosegkeet/n"), 
 				"Relatório de Busca Binária", 3);
 		JOptionPane.showMessageDialog(null, "Milisegundos = " + buscaBinaria4.getTempoExecucaoMili()
 				+"\nNanosegundos = " + buscaBinaria4.getTempoExecucaoNano()
 				+"\nEquivalente a " + buscaBinaria4.getTempoExecucaoMili() / 1000 + " segundos",
 				"Tempo de Execução da Busca Binária", 3);
+		
+		
+		
+		
 		
 		
 		/*Ordenacao ordeIncertion = new Ordenacao();

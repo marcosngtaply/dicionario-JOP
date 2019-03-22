@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 
 public class LerArquivo {
 	
-	//teste
+	
 
 	private String nomeArq;//Endereço do arquivo no computador
 	private String[] vetorTxt;
@@ -65,17 +65,35 @@ public class LerArquivo {
 		return vetorTxt;
 		
 	}
-  /*  public void EscritorTxt(String path) throws IOException {
-        
-    	BufferedWriter buffWrite = new BufferedWriter(new FileWriter(path));
-        String linha = "";
-       
-        linha = in.nextLine();
-        buffWrite.append(linha + "\n");
-        buffWrite.close();
+  
+	public void EscreverVetorTxt(String[] vetorOrdenado, String path) throws IOException {
+		
+			FileWriter endereco = new FileWriter(path);
+			BufferedWriter escrever = new BufferedWriter(endereco);
+	        String linha = "";
+	       
+	        try {
+	        	for(int i = 0; i < vetorOrdenado.length; i++) {
+	        	
+	        		
+	        		System.out.println(vetorOrdenado[i] + "|" + vetorOrdenado[i].length() + "|");
+	        		linha = vetorOrdenado[i] + " |" + vetorOrdenado[i].length() + "|\n";
+	        		escrever.append(linha);
+	        		
+	            
+	        	}
+	        	escrever.close();
+	    	}catch (IOException e) { 
+	    			e.printStackTrace();
+	        	
+	        }
+	        endereco.close();
+			JOptionPane.showMessageDialog(null,"VetorOrdenado salvo em Txt com sucesso!");
+
+	        
+    	
     }
- 
-}*/
+ 	
 		
 	public void VerPosicao(int posicao) {
 		for(int i = 0; i < posicao; i++) {

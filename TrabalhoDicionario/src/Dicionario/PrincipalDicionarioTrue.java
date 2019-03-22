@@ -1,16 +1,22 @@
 package Dicionario;
 
+import java.io.IOException;
+
 import javax.swing.JOptionPane;
 
 public class PrincipalDicionarioTrue {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 
 		String pathIngles = "./ArquivosTxt/DicionarioIngles.txt";
 		String pathLuxaemburgo = "./ArquivosTxt/DicionarioLuxemburguista.txt";
 		String pathIndonesio = "./ArquivosTxt/DicionarioIndonesia.txt";
+
+		String arqInglesOrdenacao = "./ArquivosTxt/VetorOrdenadoIngles.txt";
+		String arqIndonesiaOrdenacao = "./ArquivosTxt/VetorOrdenadoLux.txt";
+		String arqLuxenOrdenacao = "./ArquivosTxt/VetorOrdenadoIndonesia.txt";
 		
-		String[] opcoes = {"Americano", "Luxemburguista", "Indonésio"};
+		String[] opcoes = {"Americano", "Luxemburguês", "Indonésio"};
 		String[] opcoesOrdenacao = {"SelectionSort","InsertionSort","BubbleSort","QuickSort","MergeSort"};
 		String[] opcoesBusca = {"Binária", "Sequencial"};
 		
@@ -59,6 +65,7 @@ public class PrincipalDicionarioTrue {
 							+ "\nEquivalente a " + buscaSequancial.getTempoExecucaoMili() / 1000 + " segundos", 
 							"Relatório de execução da BuscaSequencial", JOptionPane.INFORMATION_MESSAGE);
 						}
+						dicAmericano.EscreverVetorTxt(ordeSelection.getVetorOrdenado(), arqInglesOrdenacao);
 					
 						opbusca = JOptionPane.showConfirmDialog(null, "Deseja continuar buscando palavras?");
 					}while(opbusca == 0);
@@ -71,7 +78,7 @@ public class PrincipalDicionarioTrue {
 					+ "\nNanosegundos = "+ ordeIncertion.getTempoExecucaoNano()
 					+ "\nEquivalente a " + ordeIncertion.getTempoExecucaoMili() / 1000 + " segundos", 
 					"Relatório de execução IncertionSort", JOptionPane.INFORMATION_MESSAGE);
-					
+
 					int opbusca = 0;
 					do {
 						
@@ -641,6 +648,24 @@ public class PrincipalDicionarioTrue {
 			
 		op = JOptionPane.showConfirmDialog(null, "Continuar operações?");
 		}while(op == 0);
+		if(op == 1) {
+			int escolhaGravar = 0;
+			int opGravar = 0;
+			do {
+				escolhaGravar = JOptionPane.showOptionDialog(null, "Qual Ordenado deseja gravar em txt?", "Escolha de Dicionário", 
+						JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, opcoes, opcoes[0]);
+				if(escolhaGravar == 0) {
+					//dicAmericano.EscreverVetorTxt(ordeQuick.getVetorOrdenado(), arqInglesOrdenacao);
+
+				}
+			
+				opGravar = JOptionPane.showConfirmDialog(null, "Deseja continuar gravando os vetores em "
+						+ "txt?");	
+			}while(opGravar == 0);
+		}
+		if(op == 2) {
+			JOptionPane.showMessageDialog(null, "Encerrando...", "Encerrar programa", 2);
+		}
 	}
 
 }

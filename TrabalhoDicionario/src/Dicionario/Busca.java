@@ -48,7 +48,6 @@ public class Busca {
 						return "Palavra (" + vetorOrdenado[i] + ") encontrada!!\nLocalizada no índice " 
 								+ i + " do vetor.";
 					}
-					
 				}
 			}
 			else if(vetorOrdenado[meio].length() < palavra.length()) {
@@ -61,8 +60,9 @@ public class Busca {
 			long tempoMiliFinal = System.currentTimeMillis();	
 			this.tempoExecucaoMili = tempoMiliFinal - tempoMiliInicial;
 		    this.tempoExecucaoNano = tempoNanoFinal - tempoNanoInicial;
+		   
 		}
-		return "Palavra não existe no vetor";
+		 return "Palavra não existe no vetor";
 	}
 	public Busca(double tempoExecucaoNano, double tempoExecucaoMili) {
 		
