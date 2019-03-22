@@ -7,10 +7,10 @@ public class PrincipalDicionarioTrue {
 	public static void main(String[] args) {
 
 		String pathIngles = "./ArquivosTxt/DicionarioIngles.txt";
-		String pathCatalao = "./ArquivosTxt/DicionarioCatalao.txt";
+		String pathLuxaemburgo = "./ArquivosTxt/DicionarioLuxemburguista.txt";
 		String pathIndonesio = "./ArquivosTxt/DicionarioIndonesia.txt";
 		
-		String[] opcoes = {"Americano", "Catalão", "Indonésio"};
+		String[] opcoes = {"Americano", "Luxemburguista", "Indonésio"};
 		String[] opcoesOrdenacao = {"SelectionSort","InsertionSort","BubbleSort","QuickSort","MergeSort"};
 		String[] opcoesBusca = {"Binária", "Sequencial"};
 		
@@ -227,13 +227,13 @@ public class PrincipalDicionarioTrue {
 				}
 			}
 			else if(escolha == 1) {
-				LerArquivo dicCatalao = new LerArquivo(pathCatalao);
-				dicCatalao.CriarVetor();
+				LerArquivo dicLuxemburgo = new LerArquivo(pathLuxaemburgo);
+				dicLuxemburgo.CriarVetor();
 				int ordenacao = JOptionPane.showOptionDialog(null, "Qual tipo de ordenação deseja usar?", "Dionário Croata", 
 						JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, opcoesOrdenacao, opcoesOrdenacao[0]);
 				if(ordenacao == 0) {
 					Ordenacao ordeSelection = new Ordenacao();
-					ordeSelection.SelectionSort(dicCatalao.getVetorTxt());
+					ordeSelection.SelectionSort(dicLuxemburgo.getVetorTxt());
 					
 					JOptionPane.showMessageDialog(null, "Tempo:\nMilisegundos = "+ ordeSelection.getTempoExecucaoMili()
 					+ "\nNanosegundos = "+ ordeSelection.getTempoExecucaoNano()
@@ -271,7 +271,7 @@ public class PrincipalDicionarioTrue {
 				}
 				else if(ordenacao == 1) {
 					Ordenacao ordeIncertion = new Ordenacao();
-					ordeIncertion.IncertionSort(dicCatalao.getVetorTxt());
+					ordeIncertion.IncertionSort(dicLuxemburgo.getVetorTxt());
 					
 					JOptionPane.showMessageDialog(null, "Tempo:\nMilisegundos = "+ ordeIncertion.getTempoExecucaoMili()
 					+ "\nNanosegundos = "+ ordeIncertion.getTempoExecucaoNano()
@@ -309,7 +309,7 @@ public class PrincipalDicionarioTrue {
 				}
 				else if(ordenacao == 2) {
 					Ordenacao ordeBubble = new Ordenacao();
-					ordeBubble.BubbleSort(dicCatalao.getVetorTxt());
+					ordeBubble.BubbleSort(dicLuxemburgo.getVetorTxt());
 					
 					JOptionPane.showMessageDialog(null, "Tempo:\nMilisegundos = "+ ordeBubble.getTempoExecucaoMili()
 					+ "\nNanosegundos = "+ ordeBubble.getTempoExecucaoNano()
@@ -348,7 +348,7 @@ public class PrincipalDicionarioTrue {
 				else if(ordenacao == 3) {
 					Ordenacao ordeQuick = new Ordenacao();
 					JOptionPane.showMessageDialog(null, "Por favor aguarde o processo de Ordenação...");
-					ordeQuick.QuickSort(dicCatalao.getVetorTxt(), 0, dicCatalao.getTamanhoVetor() - 2);
+					ordeQuick.QuickSort(dicLuxemburgo.getVetorTxt(), 0, dicLuxemburgo.getTamanhoVetor() - 2);
 					JOptionPane.showMessageDialog(null, "Ordenação concluída com sucesso!");
 
 					JOptionPane.showMessageDialog(null, "Tempo:\nMilisegundos = "+ ordeQuick.getTempoExecucaoMili()
@@ -390,7 +390,7 @@ public class PrincipalDicionarioTrue {
 					JOptionPane.showMessageDialog(null, "Por favor aguarde o processo de Ordenação...");
 					long tempoNanoInicial = System.nanoTime();
 					long tempoMiliInicial = System.currentTimeMillis();
-					ordeMerge.mergeSort(dicCatalao.getVetorTxt(), 0, dicCatalao.getTamanhoVetor() - 2);
+					ordeMerge.mergeSort(dicLuxemburgo.getVetorTxt(), 0, dicLuxemburgo.getTamanhoVetor() - 2);
 					long tempoNanoFinal = System.nanoTime();
 					long tempoMiliFinal = System.currentTimeMillis();
 					JOptionPane.showMessageDialog(null, "Ordenação concluída com sucesso!");

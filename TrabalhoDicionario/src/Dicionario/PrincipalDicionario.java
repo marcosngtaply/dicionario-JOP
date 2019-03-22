@@ -188,13 +188,13 @@ public class PrincipalDicionario {
 		
 		//TESTE COM QUICK SORT
 		LerArquivo arq2 = new LerArquivo();
-		arq2.setNomeArq("./ArquivosTxt/DicionarioEstoniano.txt");
+		arq2.setNomeArq("./ArquivosTxt/DicionarioLuxemburguista.txt");
 		arq2.CriarVetor();
 
 		JOptionPane.showMessageDialog(null, "Por favor aguarde o processamento das informações...", "Teste com QUICK SORT", 1);
 		
 		Ordenacao ordeQuick = new Ordenacao();
-		ordeQuick.QuickSort(arq2.getVetorTxt(), 0, arq2.getTamanhoVetor() - 2);
+		ordeQuick.QuickSort(arq2.getVetorTxt(), 1, arq2.getTamanhoVetor() - 2);
 		JOptionPane.showMessageDialog(null, "Milisegundos = "+ ordeQuick.getTempoExecucaoMili()
 				+ "\nNanosegundos = "+ ordeQuick.getTempoExecucaoNano()
 				+ "\nEquivale aproximadamente " + ordeQuick.getTempoExecucaoMili() / 1000 + " segundos", 
