@@ -65,7 +65,7 @@ public class PrincipalDicionarioTrue {
 							+ "\nEquivalente a " + buscaSequancial.getTempoExecucaoMili() / 1000 + " segundos", 
 							"Relatório de execução da BuscaSequencial", JOptionPane.INFORMATION_MESSAGE);
 						}
-						dicAmericano.EscreverVetorTxt(ordeSelection.getVetorOrdenado(), arqInglesOrdenacao);
+						//dicAmericano.EscreverVetorTxt(ordeSelection.getVetorOrdenado(), arqInglesOrdenacao);
 					
 						opbusca = JOptionPane.showConfirmDialog(null, "Deseja continuar buscando palavras?");
 					}while(opbusca == 0);
@@ -648,23 +648,7 @@ public class PrincipalDicionarioTrue {
 			
 		op = JOptionPane.showConfirmDialog(null, "Continuar operações?");
 		}while(op == 0);
-		if(op == 1) {
-			int escolhaGravar = 0;
-			int opGravar = 0;
-			do {
-				escolhaGravar = JOptionPane.showOptionDialog(null, "Qual Ordenado deseja gravar em txt?", "Escolha de Dicionário", 
-						JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, opcoes, opcoes[0]);
-				if(escolhaGravar == 0) {
 
-				}
-			
-				opGravar = JOptionPane.showConfirmDialog(null, "Deseja continuar gravando os vetores em "
-						+ "txt?");	
-			}while(opGravar == 0);
-		}
-		if(op == 2) {
-			JOptionPane.showMessageDialog(null, "Encerrando...", "Encerrar programa", 2);
-		}
 	}
 
 }
