@@ -188,7 +188,7 @@ public class PrincipalDicionario {
 		
 		
 		//TESTE COM QUICK SORT
-		String pathArquivo = "./ArquivosTxt/VetorOrdenadoLuximburguista.txt";
+		String pathArquivo = "./ArquivosTxt/VetorOrdenadoLuxtxt";
 		LerArquivo arq2 = new LerArquivo();
 		arq2.setNomeArq("./ArquivosTxt/DicionarioLuxemburguista.txt");
 		arq2.CriarVetor();
