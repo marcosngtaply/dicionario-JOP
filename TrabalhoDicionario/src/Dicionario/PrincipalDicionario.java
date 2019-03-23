@@ -188,22 +188,22 @@ public class PrincipalDicionario {
 		
 		
 		//TESTE COM QUICK SORT
-		String pathArquivo = "./ArquivosTxt/VetorOrdenadoLuxtxt";
+		/*String pathArquivo = "./ArquivosTxt/VetorOrdenadoIngles.txt";
 		LerArquivo arq2 = new LerArquivo();
-		arq2.setNomeArq("./ArquivosTxt/DicionarioLuxemburguista.txt");
+		arq2.setNomeArq("./ArquivosTxt/DicionarioIngles.txt");
 		arq2.CriarVetor();
 
 		JOptionPane.showMessageDialog(null, "Por favor aguarde o processamento das informações...", "Teste com QUICK SORT", 1);
 		
 		Ordenacao ordeQuick = new Ordenacao();
-		ordeQuick.QuickSort(arq2.getVetorTxt(), 1, arq2.getTamanhoVetor() - 2);
+		ordeQuick.QuickSort(arq2.getVetorTxt(), 0, arq2.getTamanhoVetor() - 2);
 		JOptionPane.showMessageDialog(null, "Milisegundos = "+ ordeQuick.getTempoExecucaoMili()
 				+ "\nNanosegundos = "+ ordeQuick.getTempoExecucaoNano()
 				+ "\nEquivale aproximadamente " + ordeQuick.getTempoExecucaoMili() / 1000 + " segundos", 
 				"Tempo de Execução da Ordenação com QuickSort", 3);
 
 		Busca buscaSequencial4 = new Busca();
-		JOptionPane.showMessageDialog(null, buscaSequencial4.BuscaSequencial(ordeQuick.getVetorOrdenado(), "Liichtathletikweltmeeschterschafte"), 
+		JOptionPane.showMessageDialog(null, buscaSequencial4.BuscaSequencial(ordeQuick.getVetorOrdenado(), "electroencephalography/M"), 
 				"Relatório de Busca Sequencial", 3);
 		JOptionPane.showMessageDialog(null, "Milisegundos = " + buscaSequencial4.getTempoExecucaoMili()
 				+"\nNanosegundos = " + buscaSequencial4.getTempoExecucaoNano()
@@ -211,18 +211,48 @@ public class PrincipalDicionario {
 				"Tempo de Execução da Busca Sequencial", 3);
 		
 		Busca buscaBinaria4 = new Busca();
-		JOptionPane.showMessageDialog(null, buscaBinaria4.BuscaBinaria(ordeQuick.getVetorOrdenado(), "Europameeschterschaftsqualifikatiounsmatch/R"), 
+		JOptionPane.showMessageDialog(null, buscaBinaria4.BuscaBinaria(ordeQuick.getVetorOrdenado(), "electroencephalography/M"), 
 				"Relatório de Busca Binária", 3);
 		JOptionPane.showMessageDialog(null, "Milisegundos = " + buscaBinaria4.getTempoExecucaoMili()
 				+"\nNanosegundos = " + buscaBinaria4.getTempoExecucaoNano()
 				+"\nEquivalente a " + buscaBinaria4.getTempoExecucaoMili() / 1000 + " segundos",
 				"Tempo de Execução da Busca Binária", 3);
-		arq2.EscreverVetorTxt(ordeQuick.getVetorOrdenado(), pathArquivo);
+		arq2.EscreverVetorTxt(ordeQuick.getVetorOrdenado(), pathArquivo);*/
+		
+		//TESTE COM O MERGE SORT
+		
+		String pathArquivo = "./ArquivosTxt/VetorOrdenadoIngles.txt";
+		LerArquivo arq2 = new LerArquivo();
+		arq2.setNomeArq("./ArquivosTxt/DicionarioIngles.txt");
+		arq2.CriarVetor();
 
+		JOptionPane.showMessageDialog(null, "Por favor aguarde o processamento das informações...", "Teste com MERGE SORT", 1);
 		
+		Ordenacao ordeMerge = new Ordenacao();
+		ordeMerge.MergeSort(arq2.getVetorTxt(), 0, arq2.getTamanhoVetor() - 2);
+		JOptionPane.showMessageDialog(null, "Milisegundos = "+ ordeMerge.getTempoExecucaoMili()
+				+ "\nNanosegundos = "+ ordeMerge.getTempoExecucaoNano()
+				+ "\nEquivale aproximadamente " + ordeMerge.getTempoExecucaoMili() / 1000 + " segundos", 
+				"Tempo de Execução da Ordenação com MergeSort", 3);
+
+		Busca buscaSequencial5 = new Busca();
+		JOptionPane.showMessageDialog(null, buscaSequencial5.BuscaSequencial(ordeMerge.getVetorOrdenado(), "electroencephalography/M"), 
+				"Relatório de Busca Sequencial", 3);
+		JOptionPane.showMessageDialog(null, "Milisegundos = " + buscaSequencial5.getTempoExecucaoMili()
+				+"\nNanosegundos = " + buscaSequencial5.getTempoExecucaoNano()
+				+"\nEquivalente a " + buscaSequencial5.getTempoExecucaoMili() / 1000 + " segundos",
+				"Tempo de Execução da Busca Sequencial", 3);
 		
+		Busca buscaBinaria5 = new Busca();
+		JOptionPane.showMessageDialog(null, buscaBinaria5.BuscaBinaria(ordeMerge.getVetorOrdenado(), "electroencephalography/M"), 
+				"Relatório de Busca Binária", 3);
+		JOptionPane.showMessageDialog(null, "Milisegundos = " + buscaBinaria5.getTempoExecucaoMili()
+				+"\nNanosegundos = " + buscaBinaria5.getTempoExecucaoNano()
+				+"\nEquivalente a " + buscaBinaria5.getTempoExecucaoMili() / 1000 + " segundos",
+				"Tempo de Execução da Busca Binária", 3);
+		arq2.EscreverVetorTxt(ordeMerge.getVetorOrdenado(), pathArquivo);
 		
-		
+
 		
 		/*Ordenacao ordeIncertion = new Ordenacao();
 		ordeIncertion.IncertionSort(arq1.CriarVetor());

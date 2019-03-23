@@ -106,20 +106,13 @@ public class Ordenacao {
          return vetorTxt;
 	 }
      public void QuickSort(String[] vetorTxt, int inicio, int fim) {
-		long tempoNanoInicial = System.nanoTime();
-		long tempoMiliInicial = System.currentTimeMillis();
 
         if(inicio < fim) {
              int posicaoPivo = Separar(vetorTxt, inicio, fim);
-             QuickSort(vetorTxt, inicio, posicaoPivo - 1);//aqui
+             QuickSort(vetorTxt, inicio, posicaoPivo - 1);
              QuickSort(vetorTxt, posicaoPivo + 1, fim);
              
         }
-
-		long tempoNanoFinal = System.nanoTime();
-		long tempoMiliFinal = System.currentTimeMillis();
-		this.tempoExecucaoMili = tempoMiliFinal - tempoMiliInicial;
-		this.tempoExecucaoNano = tempoNanoFinal - tempoNanoInicial;
         this.vetorOrdenado = vetorTxt;
      }
      public int Separar(String[] vetorTxt, int inicio, int fim) {
@@ -148,78 +141,67 @@ public class Ordenacao {
           vetorTxt[f] = pivo;
           return f;
      }
-     
-     public void mergeSort(String vetor[], int inicio, int fim) {
-         int meio;
-         if (inicio < fim) {
-             meio = (inicio + fim) / 2;
-             mergeSort(vetor, inicio, meio);
-             mergeSort(vetor, meio + 1, fim);
-             intercala(vetor, inicio, meio, fim);
-          }
-         this.vetorOrdenado = vetor;
-      }
-  
-     public void intercala(String vetor[], int inicio, int meio, int fim) {
-         int i, j, k;
-         String vetorB[] = new String[vetor.length];
-         for (i = inicio; i <= meio; i++) {
-             vetorB[i] = vetor[i];
+     private void Merge(String[] vetorTxt, int esquerdaVet, int meioVet, int direitaVet) { 
+         
+    	 int n1 = meioVet - esquerdaVet + 1; 
+         int n2 = direitaVet - meioVet; 
+   
+         String L[] = new String [n1]; 
+         String R[] = new String [n2]; 
+   
+         for (int i = 0; i < n1; ++i) {
+             L[i] = vetorTxt[esquerdaVet + i]; 
          }
-         for (j = meio + 1; j < fim; j++) {
-             vetorB[fim + meio + 1 - j] = vetor[j];
+         for (int j = 0; j < n2; ++j) {
+             R[j] = vetorTxt[meioVet + 1+ j]; 
          }
-         i = inicio;
-         j = fim;
-         for (k = inicio; k <= fim; k++) {
-             if(vetorB[i].length() < vetorB[j].length()) {
-                 vetor[k] = vetorB[i];
-                 i = i + 1;
-             } else {
-                 vetor[k] = vetorB[j];
-                 j = j - 1;
+   
+         int i = 0, j = 0; 
+   
+         int k = esquerdaVet; 
+         while (i < n1 && j < n2) { 
+             
+        	 if (L[i].length() <= R[j].length()) { 
+            	 vetorTxt[k] = L[i]; 
+                 i++; 
              }
+             else { 
+            	 vetorTxt[k] = R[j]; 
+                 j++; 
+             }
+             k++; 
          }
-     }
-     public void MergeSort(String[] vetorTxt, String[] vetorAuxiliar, int inicioVet, int fimVet) {
-    	 if(inicioVet < fimVet) {
-    		 int meioVet = (inicioVet + fimVet) / 2;
-    		 MergeSort(vetorTxt, vetorAuxiliar, inicioVet, meioVet);
-    		 MergeSort(vetorTxt, vetorAuxiliar, meioVet + 1, fimVet);
-    		 Intercalar(vetorTxt, inicioVet, meioVet, fimVet);
-    	 }
-    	 this.vetorOrdenado = vetorTxt;
-     }
-    
-	 public void Intercalar(String[] vetorTxt, int inicioVet, int meioVet, int fimVet) {
-		 
-		 String[] vetorAuxiliar = new String[vetorTxt.length];
-		
-		 for(int i = inicioVet; i <= meioVet; i++) {
-			 vetorAuxiliar[i] = vetorTxt[i];
-
-		 }
-		 
-		 for(int j = meioVet + 1; j <= fimVet + 1; j++) {
-			 vetorAuxiliar[j] = vetorTxt[j];
-
-		 }
-		 int indiceEsq = inicioVet;
-		 int indiceDir = fimVet;
-		 
-		 for(int k = inicioVet; k <= fimVet; k++) {
-			 if(vetorAuxiliar[indiceEsq].length() <= vetorAuxiliar[indiceDir].length()) {
-				 vetorTxt[k] = vetorAuxiliar[indiceEsq];
-				 indiceEsq++;
-			 }
-			 else {
-				 vetorTxt[k] = vetorAuxiliar[indiceDir];
-				 indiceDir--;
-				 
-			 }
-		 }
-	 }
-
+         while (i < n1) { 
+        	 vetorTxt[k] = L[i]; 
+             i++; 
+             k++; 
+         } 
+         while (j < n2) { 
+        	 vetorTxt[k] = R[j]; 
+             j++; 
+             k++; 
+         } 
+     } 
+     public void MergeSort(String[] vetorTxt, int esquerdaVet, int direitaVet) { 
+    	long tempoNanoInicial = System.nanoTime();
+		long tempoMiliInicial = System.currentTimeMillis();
+        
+		if (esquerdaVet < direitaVet) { 
+            
+             int meio = (esquerdaVet+direitaVet)/2; 
+ 
+             MergeSort(vetorTxt, esquerdaVet, meio); 
+             MergeSort(vetorTxt , meio + 1, direitaVet); 
+   
+             Merge(vetorTxt, esquerdaVet, meio, direitaVet); 
+        } 
+        this.vetorOrdenado = vetorTxt;
+        long tempoNanoFinal = System.nanoTime();
+ 		long tempoMiliFinal = System.currentTimeMillis();
+ 		this.tempoExecucaoMili = tempoMiliFinal - tempoMiliInicial;
+ 		this.tempoExecucaoNano = tempoNanoFinal - tempoNanoInicial;
+ 		
+     } 
 	 public void MostrarOrdenacao() {
 		 for(int o = 0; o < vetorOrdenado.length - 1; o++) {
 			 System.out.println(vetorOrdenado[o] + " |" + vetorOrdenado[o].length());

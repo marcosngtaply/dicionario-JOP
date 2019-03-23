@@ -39,20 +39,22 @@ public class LerArquivo {
 			//leitor de linhas do arquivo de entrada(FileReader(nomeArq)
 			
 			String linha = " "; 
-			//Variável para receber as linhas comop Strings
+
+			//Variável para receber as linhas como Strings
 			linha = leitorDeLinhas.readLine();
 			this.tamanhoVetor = Integer.parseInt(linha);
 			
 			vetorTxt = new String[tamanhoVetor + 1];
 			/*esse +1 vem por conta do arquivo ter uma linha a mais justamente 
 			  por informar a quantia de linhas do vetor.*/
-			int i = 0;
 			
+			int i = 0;
 				while(linha != null) {
 					linha = leitorDeLinhas.readLine();
 					vetorTxt[i] = linha;
 					i++;
 				}
+				
 				
 		localArq.close();
 		JOptionPane.showMessageDialog(null,"Arquivo Dicionário lido e vetor criado com sucesso!");
@@ -71,29 +73,33 @@ public class LerArquivo {
 			FileWriter endereco = new FileWriter(path);
 			BufferedWriter escrever = new BufferedWriter(endereco);
 	        String linha = "";
+	       // String tudo = "";
 	       
-	        
-	        	for(int i = 0; i < vetorOrdenado.length; i++) {
-	        		try {
-	        		
-	        		System.out.println(vetorOrdenado[i] + "|" + vetorOrdenado[i].length() + "|");
-	        		linha = vetorOrdenado[i] + " |" + vetorOrdenado[i].length() + "|\n";
-	        		escrever.append(linha);
-	        		
-	            
-	        		}
-	        		catch (IOException e) { 
-		    			e.printStackTrace();
-		    			
-	        		}
-	        		escrever.close();
-	        	
+	       
+	        	for(int i = 0; i < vetorOrdenado.length - 1; i++) {
+	        			System.out.println(vetorOrdenado[i] + " tamanho |" + vetorOrdenado[i].length() + "|");
+						linha = vetorOrdenado[i] + " |" + vetorOrdenado[i].length() + "|\n";
+						escrever.append(linha);
 	        	}
-	        endereco.close();
+	        	
+	        	escrever.close();	
 			JOptionPane.showMessageDialog(null,"VetorOrdenado salvo em Txt com sucesso!");
     	
     }
- 	
+	/*public void escritor(String[] vetorOrdenado, String path) throws IOException {
+		  FileWriter endereco = new FileWriter(path);
+		  BufferedWriter buffWrite = new BufferedWriter(endereco);
+	      
+		  String linha = "";
+		  String tudo = "";
+		  for(int i = 0; i < vetorOrdenado.length - 1; i++) {
+			  linha = vetorOrdenado[i] + " |" + vetorOrdenado[i].length() + "|\n";
+			 // tudo = tudo + linha;
+			  buffWrite.append(linha);
+		  }
+		 
+	      buffWrite.close();
+	}*/
 		
 	public void VerPosicao(int posicao) {
 		for(int i = 0; i < posicao; i++) {

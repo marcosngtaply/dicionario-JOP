@@ -13,8 +13,8 @@ public class PrincipalDicionarioTrue {
 		String pathIndonesio = "./ArquivosTxt/DicionarioIndonesia.txt";
 
 		String arqInglesOrdenacao = "./ArquivosTxt/VetorOrdenadoIngles.txt";
-		String arqIndonesiaOrdenacao = "./ArquivosTxt/VetorOrdenadoLux.txt";
-		String arqLuxenOrdenacao = "./ArquivosTxt/VetorOrdenadoIndonesia.txt";
+		String arqIndonesiaOrdenacao = "./ArquivosTxt/VetorOrdenadoIndonesia.txt";
+		String arqLuxenOrdenacao = "./ArquivosTxt/VetorOrdenadoLux.txt";
 		
 		String[] opcoes = {"Americano", "Luxemburguês", "Indonésio"};
 		String[] opcoesOrdenacao = {"SelectionSort","InsertionSort","BubbleSort","QuickSort","MergeSort"};
@@ -24,7 +24,7 @@ public class PrincipalDicionarioTrue {
 		int op, escolha;
 		do {
 		
-			escolha = JOptionPane.showOptionDialog(null, "Qual Dicionário deseja Manipular?", "Escolha de Arquivo", 
+			escolha = JOptionPane.showOptionDialog(null, "Qual Dicionário deseja Manipular?", "Escolha de Dicionário", 
 				JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, opcoes, opcoes[0]);
 			if(escolha == 0) {
 				LerArquivo dicAmericano = new LerArquivo(pathIngles);
@@ -39,6 +39,13 @@ public class PrincipalDicionarioTrue {
 					+ "\nNanosegundos = "+ ordeSelection.getTempoExecucaoNano()
 					+ "\nEquivalente a " + ordeSelection.getTempoExecucaoMili() / 1000 + " segundos", 
 					"Relatório de execução SelectionSort", JOptionPane.INFORMATION_MESSAGE);
+					
+					int opGravar = 0;
+					opGravar = JOptionPane.showConfirmDialog(null, "Deseja salvar a ordenação em um documento Txt?");
+					
+					if(opGravar == 0) {
+						dicAmericano.EscreverVetorTxt(ordeSelection.getVetorOrdenado(), arqInglesOrdenacao);
+					}
 					
 					int opbusca = 0;
 					do {
@@ -65,7 +72,7 @@ public class PrincipalDicionarioTrue {
 							+ "\nEquivalente a " + buscaSequancial.getTempoExecucaoMili() / 1000 + " segundos", 
 							"Relatório de execução da BuscaSequencial", JOptionPane.INFORMATION_MESSAGE);
 						}
-						//dicAmericano.EscreverVetorTxt(ordeSelection.getVetorOrdenado(), arqInglesOrdenacao);
+						
 					
 						opbusca = JOptionPane.showConfirmDialog(null, "Deseja continuar buscando palavras?");
 					}while(opbusca == 0);
@@ -79,6 +86,13 @@ public class PrincipalDicionarioTrue {
 					+ "\nEquivalente a " + ordeIncertion.getTempoExecucaoMili() / 1000 + " segundos", 
 					"Relatório de execução IncertionSort", JOptionPane.INFORMATION_MESSAGE);
 
+					int opGravar = 0;
+					opGravar = JOptionPane.showConfirmDialog(null, "Deseja salvar a ordenação em um documento Txt?");
+					
+					if(opGravar == 0) {
+						dicAmericano.EscreverVetorTxt(ordeIncertion.getVetorOrdenado(), arqInglesOrdenacao);
+					}
+					
 					int opbusca = 0;
 					do {
 						
@@ -117,6 +131,13 @@ public class PrincipalDicionarioTrue {
 					+ "\nEquivalente a " + ordeBubble.getTempoExecucaoMili() / 1000 + " segundos", 
 					"Relatório de execução BubbleSort", JOptionPane.INFORMATION_MESSAGE);
 					
+					int opGravar = 0;
+					opGravar = JOptionPane.showConfirmDialog(null, "Deseja salvar a ordenação em um documento Txt?");
+					
+					if(opGravar == 0) {
+						dicAmericano.EscreverVetorTxt(ordeBubble.getVetorOrdenado(), arqInglesOrdenacao);
+					}
+					
 					int opbusca = 0;
 					do {
 						
@@ -149,13 +170,28 @@ public class PrincipalDicionarioTrue {
 				else if(ordenacao == 3) {
 					Ordenacao ordeQuick = new Ordenacao();
 					JOptionPane.showMessageDialog(null, "Por favor aguarde o processo de Ordenação...");
+					
+					long tempoNanoInicial = System.nanoTime();
+					long tempoMiliInicial = System.currentTimeMillis();
 					ordeQuick.QuickSort(dicAmericano.getVetorTxt(), 0, dicAmericano.getTamanhoVetor() - 2);
+					long tempoNanoFinal = System.nanoTime();
+					long tempoMiliFinal = System.currentTimeMillis();
+					
+					double tempoExecucaoMili = tempoMiliFinal - tempoMiliInicial;
+					double tempoExecucaoNano = tempoNanoFinal - tempoNanoInicial;
+					
 					JOptionPane.showMessageDialog(null, "Ordenação concluída com sucesso!");
-
-					JOptionPane.showMessageDialog(null, "Tempo:\nMilisegundos = "+ ordeQuick.getTempoExecucaoMili()
-					+ "\nNanosegundos = "+ ordeQuick.getTempoExecucaoNano()
-					+ "\nEquivalente a " + ordeQuick.getTempoExecucaoMili() / 1000 + " segundos", 
+					
+					JOptionPane.showMessageDialog(null, "Tempo:\nMilisegundos = "+ tempoExecucaoMili
+					+ "\nNanosegundos = "+ tempoExecucaoNano + "\nEquivalente a " + tempoExecucaoMili / 1000 + " segundos", 
 					"Relatório de execução QuickSort", JOptionPane.INFORMATION_MESSAGE);
+					
+					int opGravar = 0;
+					opGravar = JOptionPane.showConfirmDialog(null, "Deseja salvar a ordenação em um documento Txt?");
+					
+					if(opGravar == 0) {
+						dicAmericano.EscreverVetorTxt(ordeQuick.getVetorOrdenado(), arqInglesOrdenacao);
+					}
 					
 					int opbusca = 0;
 					do {
@@ -189,19 +225,28 @@ public class PrincipalDicionarioTrue {
 				else if(ordenacao == 4) {
 					Ordenacao ordeMerge = new Ordenacao();
 					JOptionPane.showMessageDialog(null, "Por favor aguarde o processo de Ordenação...");
+					
 					long tempoNanoInicial = System.nanoTime();
 					long tempoMiliInicial = System.currentTimeMillis();
-					ordeMerge.mergeSort(dicAmericano.getVetorTxt(), 0, dicAmericano.getTamanhoVetor() - 2);
+					ordeMerge.MergeSort(dicAmericano.getVetorTxt(), 0, dicAmericano.getTamanhoVetor() - 2);
 					long tempoNanoFinal = System.nanoTime();
 					long tempoMiliFinal = System.currentTimeMillis();
+					
+					double tempoExecucaoMili = tempoMiliFinal - tempoMiliInicial;
+					double tempoExecucaoNano = tempoNanoFinal - tempoNanoInicial;
+					
 					JOptionPane.showMessageDialog(null, "Ordenação concluída com sucesso!");
 					
-					double tempoMergeMili = tempoMiliFinal - tempoMiliInicial;
-					double tempoMergeNanno = tempoNanoFinal - tempoNanoInicial;
-					
-					JOptionPane.showMessageDialog(null, "Tempo:\nMilisegundos = "+ tempoMergeMili + "\nNanosegundos = " 
-					+ tempoMergeNanno + "\nEquivalente a " + tempoMergeMili / 1000 + " segundos", 
+					JOptionPane.showMessageDialog(null, "Tempo:\nMilisegundos = "+ tempoExecucaoMili 
+					+ "\nNanosegundos = " + tempoExecucaoNano + "\nEquivalente a " + tempoExecucaoMili / 1000 + " segundos", 
 					"Relatório de execução MergeSort", JOptionPane.INFORMATION_MESSAGE);
+					
+					int opGravar = 0;
+					opGravar = JOptionPane.showConfirmDialog(null, "Deseja salvar a ordenação em um documento Txt?");
+					
+					if(opGravar == 0) {
+						dicAmericano.EscreverVetorTxt(ordeMerge.getVetorOrdenado(), arqInglesOrdenacao);
+					}
 					
 					int opbusca = 0;
 					do {
@@ -247,6 +292,13 @@ public class PrincipalDicionarioTrue {
 					+ "\nEquivalente a " + ordeSelection.getTempoExecucaoMili() / 1000 + " segundos", 
 					"Relatório de execução SelectionSort", JOptionPane.INFORMATION_MESSAGE);
 					
+					int opGravar = 0;
+					opGravar = JOptionPane.showConfirmDialog(null, "Deseja salvar a ordenação em um documento Txt?");
+					
+					if(opGravar == 0) {
+						dicLuxemburgo.EscreverVetorTxt(ordeSelection.getVetorOrdenado(), arqLuxenOrdenacao);
+					}
+					
 					int opbusca = 0;
 					do {
 						
@@ -284,6 +336,13 @@ public class PrincipalDicionarioTrue {
 					+ "\nNanosegundos = "+ ordeIncertion.getTempoExecucaoNano()
 					+ "\nEquivalente a " + ordeIncertion.getTempoExecucaoMili() / 1000 + " segundos", 
 					"Relatório de execução IncertionSort", JOptionPane.INFORMATION_MESSAGE);
+					
+					int opGravar = 0;
+					opGravar = JOptionPane.showConfirmDialog(null, "Deseja salvar a ordenação em um documento Txt?");
+					
+					if(opGravar == 0) {
+						dicLuxemburgo.EscreverVetorTxt(ordeIncertion.getVetorOrdenado(), arqLuxenOrdenacao);
+					}
 					
 					int opbusca = 0;
 					do {
@@ -323,6 +382,13 @@ public class PrincipalDicionarioTrue {
 					+ "\nEquivalente a " + ordeBubble.getTempoExecucaoMili() / 1000 + " segundos", 
 					"Relatório de execução BubbleSort", JOptionPane.INFORMATION_MESSAGE);
 					
+					int opGravar = 0;
+					opGravar = JOptionPane.showConfirmDialog(null, "Deseja salvar a ordenação em um documento Txt?");
+					
+					if(opGravar == 0) {
+						dicLuxemburgo.EscreverVetorTxt(ordeBubble.getVetorOrdenado(), arqLuxenOrdenacao);
+					}
+					
 					int opbusca = 0;
 					do {
 						
@@ -355,13 +421,28 @@ public class PrincipalDicionarioTrue {
 				else if(ordenacao == 3) {
 					Ordenacao ordeQuick = new Ordenacao();
 					JOptionPane.showMessageDialog(null, "Por favor aguarde o processo de Ordenação...");
+					
+					long tempoNanoInicial = System.nanoTime();
+					long tempoMiliInicial = System.currentTimeMillis();
 					ordeQuick.QuickSort(dicLuxemburgo.getVetorTxt(), 0, dicLuxemburgo.getTamanhoVetor() - 2);
+					long tempoNanoFinal = System.nanoTime();
+					long tempoMiliFinal = System.currentTimeMillis();
+					
+					double tempoExecucaoMili = tempoMiliFinal - tempoMiliInicial;
+					double tempoExecucaoNano = tempoNanoFinal - tempoNanoInicial;
+					
 					JOptionPane.showMessageDialog(null, "Ordenação concluída com sucesso!");
 
-					JOptionPane.showMessageDialog(null, "Tempo:\nMilisegundos = "+ ordeQuick.getTempoExecucaoMili()
-					+ "\nNanosegundos = "+ ordeQuick.getTempoExecucaoNano()
-					+ "\nEquivalente a " + ordeQuick.getTempoExecucaoMili() / 1000 + " segundos", 
+					JOptionPane.showMessageDialog(null, "Tempo:\nMilisegundos = "+ tempoExecucaoMili
+					+ "\nNanosegundos = "+ tempoExecucaoNano + "\nEquivalente a " + tempoExecucaoMili / 1000 + " segundos", 
 					"Relatório de execução QuickSort", JOptionPane.INFORMATION_MESSAGE);
+					
+					int opGravar = 0;
+					opGravar = JOptionPane.showConfirmDialog(null, "Deseja salvar a ordenação em um documento Txt?");
+					
+					if(opGravar == 0) {
+						dicLuxemburgo.EscreverVetorTxt(ordeQuick.getVetorOrdenado(), arqLuxenOrdenacao);
+					}
 					
 					int opbusca = 0;
 					do {
@@ -395,19 +476,28 @@ public class PrincipalDicionarioTrue {
 				else if(ordenacao == 4) {
 					Ordenacao ordeMerge = new Ordenacao();
 					JOptionPane.showMessageDialog(null, "Por favor aguarde o processo de Ordenação...");
+					
 					long tempoNanoInicial = System.nanoTime();
 					long tempoMiliInicial = System.currentTimeMillis();
-					ordeMerge.mergeSort(dicLuxemburgo.getVetorTxt(), 0, dicLuxemburgo.getTamanhoVetor() - 2);
+					ordeMerge.MergeSort(dicLuxemburgo.getVetorTxt(), 0, dicLuxemburgo.getTamanhoVetor() - 2);
 					long tempoNanoFinal = System.nanoTime();
 					long tempoMiliFinal = System.currentTimeMillis();
-					JOptionPane.showMessageDialog(null, "Ordenação concluída com sucesso!");
 					
 					double tempoMergeMili = tempoMiliFinal - tempoMiliInicial;
 					double tempoMergeNanno = tempoNanoFinal - tempoNanoInicial;
 					
+					JOptionPane.showMessageDialog(null, "Ordenação concluída com sucesso!");
+					
 					JOptionPane.showMessageDialog(null, "Tempo:\nMilisegundos = "+ tempoMergeMili + "\nNanosegundos = " 
 					+ tempoMergeNanno + "\nEquivalente a " + tempoMergeMili / 1000 + " segundos", 
 					"Relatório de execução MergeSort", JOptionPane.INFORMATION_MESSAGE);
+					
+					int opGravar = 0;
+					opGravar = JOptionPane.showConfirmDialog(null, "Deseja salvar a ordenação em um documento Txt?");
+					
+					if(opGravar == 0) {
+						dicLuxemburgo.EscreverVetorTxt(ordeMerge.getVetorOrdenado(), arqLuxenOrdenacao);
+					}
 					
 					int opbusca = 0;
 					do {
@@ -453,6 +543,13 @@ public class PrincipalDicionarioTrue {
 					+ "\nEquivalente a " + ordeSelection.getTempoExecucaoMili() / 1000 + " segundos", 
 					"Relatório de execução SelectionSort", JOptionPane.INFORMATION_MESSAGE);
 					
+					int opGravar = 0;
+					opGravar = JOptionPane.showConfirmDialog(null, "Deseja salvar a ordenação em um documento Txt?");
+					
+					if(opGravar == 0) {
+						dicIndonesio.EscreverVetorTxt(ordeSelection.getVetorOrdenado(), arqIndonesiaOrdenacao);
+					}
+					
 					int opbusca = 0;
 					do {
 						
@@ -490,6 +587,13 @@ public class PrincipalDicionarioTrue {
 					+ "\nNanosegundos = "+ ordeIncertion.getTempoExecucaoNano()
 					+ "\nEquivalente a " + ordeIncertion.getTempoExecucaoMili() / 1000 + " segundos", 
 					"Relatório de execução IncertionSort", JOptionPane.INFORMATION_MESSAGE);
+					
+					int opGravar = 0;
+					opGravar = JOptionPane.showConfirmDialog(null, "Deseja salvar a ordenação em um documento Txt?");
+					
+					if(opGravar == 0) {
+						dicIndonesio.EscreverVetorTxt(ordeIncertion.getVetorOrdenado(), arqIndonesiaOrdenacao);
+					}
 					
 					int opbusca = 0;
 					do {
@@ -529,6 +633,13 @@ public class PrincipalDicionarioTrue {
 					+ "\nEquivalente a " + ordeBubble.getTempoExecucaoMili() / 1000 + " segundos", 
 					"Relatório de execução BubbleSort", JOptionPane.INFORMATION_MESSAGE);
 					
+					int opGravar = 0;
+					opGravar = JOptionPane.showConfirmDialog(null, "Deseja salvar a ordenação em um documento Txt?");
+					
+					if(opGravar == 0) {
+						dicIndonesio.EscreverVetorTxt(ordeBubble.getVetorOrdenado(), arqIndonesiaOrdenacao);
+					}
+					
 					int opbusca = 0;
 					do {
 						
@@ -561,13 +672,28 @@ public class PrincipalDicionarioTrue {
 				else if(ordenacao == 3) {
 					Ordenacao ordeQuick = new Ordenacao();
 					JOptionPane.showMessageDialog(null, "Por favor aguarde o processo de Ordenação...");
+					
+					long tempoNanoInicial = System.nanoTime();
+					long tempoMiliInicial = System.currentTimeMillis();
 					ordeQuick.QuickSort(dicIndonesio.getVetorTxt(), 0, dicIndonesio.getTamanhoVetor() - 2);
+					long tempoNanoFinal = System.nanoTime();
+					long tempoMiliFinal = System.currentTimeMillis();
+					
+					double tempoQuickMili = tempoMiliFinal - tempoMiliInicial;
+					double tempoQuickNano = tempoNanoFinal - tempoNanoInicial;
+					
 					JOptionPane.showMessageDialog(null, "Ordenação concluída com sucesso!");
 
-					JOptionPane.showMessageDialog(null, "Tempo:\nMilisegundos = "+ ordeQuick.getTempoExecucaoMili()
-					+ "\nNanosegundos = "+ ordeQuick.getTempoExecucaoNano()
-					+ "\nEquivalente a " + ordeQuick.getTempoExecucaoMili() / 1000 + " segundos", 
+					JOptionPane.showMessageDialog(null, "Tempo:\nMilisegundos = "+ tempoQuickMili
+					+ "\nNanosegundos = "+ tempoQuickNano + "\nEquivalente a " + tempoQuickMili / 1000 + " segundos", 
 					"Relatório de execução QuickSort", JOptionPane.INFORMATION_MESSAGE);
+					
+					int opGravar = 0;
+					opGravar = JOptionPane.showConfirmDialog(null, "Deseja salvar a ordenação em um documento Txt?");
+					
+					if(opGravar == 0) {
+						dicIndonesio.EscreverVetorTxt(ordeQuick.getVetorOrdenado(), arqIndonesiaOrdenacao);
+					}
 					
 					int opbusca = 0;
 					do {
@@ -601,19 +727,28 @@ public class PrincipalDicionarioTrue {
 				else if(ordenacao == 4) {
 					Ordenacao ordeMerge = new Ordenacao();
 					JOptionPane.showMessageDialog(null, "Por favor aguarde o processo de Ordenação...");
+					
 					long tempoNanoInicial = System.nanoTime();
 					long tempoMiliInicial = System.currentTimeMillis();
-					ordeMerge.mergeSort(dicIndonesio.getVetorTxt(), 0, dicIndonesio.getTamanhoVetor() - 2);
+					ordeMerge.MergeSort(dicIndonesio.getVetorTxt(), 0, dicIndonesio.getTamanhoVetor() - 2);
 					long tempoNanoFinal = System.nanoTime();
 					long tempoMiliFinal = System.currentTimeMillis();
-					JOptionPane.showMessageDialog(null, "Ordenação concluída com sucesso!");
 					
 					double tempoMergeMili = tempoMiliFinal - tempoMiliInicial;
 					double tempoMergeNanno = tempoNanoFinal - tempoNanoInicial;
 					
+					JOptionPane.showMessageDialog(null, "Ordenação concluída com sucesso!");
+
 					JOptionPane.showMessageDialog(null, "Tempo:\nMilisegundos = "+ tempoMergeMili + "\nNanosegundos = " 
 					+ tempoMergeNanno + "\nEquivalente a " + tempoMergeMili / 1000 + " segundos", 
 					"Relatório de execução MergeSort", JOptionPane.INFORMATION_MESSAGE);
+					
+					int opGravar = 0;
+					opGravar = JOptionPane.showConfirmDialog(null, "Deseja salvar a ordenação em um documento Txt?");
+					
+					if(opGravar == 0) {
+						dicIndonesio.EscreverVetorTxt(ordeMerge.getVetorOrdenado(), arqIndonesiaOrdenacao);
+					}
 					
 					int opbusca = 0;
 					do {
@@ -649,6 +784,9 @@ public class PrincipalDicionarioTrue {
 		op = JOptionPane.showConfirmDialog(null, "Continuar operações?");
 		}while(op == 0);
 
+		if(op != 0) {
+			JOptionPane.showMessageDialog(null, "Encerrando Sistema!", "Encerrar", 2);
+		}
 	}
 
 }

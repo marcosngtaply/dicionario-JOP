@@ -35,21 +35,24 @@ public class Busca {
 			
 			if(palavra.length() == vetorOrdenado[meio].length()) {
 				
-				for(int i = meio; i < fimVet; i++) {
-					if(palavra.equals(vetorOrdenado[i])) {
-						return "Palavra (" + vetorOrdenado[i] + ") encontrada!!\nLocalizada no índice " 
-								+ i + " do vetor.";
-					}
+				while(palavra.length() == vetorOrdenado[meio].length()) {
+					for(int i = meio; i < fimVet; i++) {
+						if(palavra.equals(vetorOrdenado[i])) {
+							return "Palavra (" + vetorOrdenado[i] + ") encontrada!!\nLocalizada no índice " 
+									+ i + " do vetor.";
+						}
 					
+					}
+				
+					for(int i = meio - 1; i > inicioVet; i--) {
+						if(palavra.equals(vetorOrdenado[i])) {
+							return "Palavra (" + vetorOrdenado[i] + ") encontrada!!\nLocalizada no índice " 
+									+ i + " do vetor.";
+						}
+					}
+					return "Palavra não existe no vetor";
 				}
 				
-				for(int i = meio - 1; i > inicioVet; i--) {
-					if(palavra.equals(vetorOrdenado[i])) {
-						return "Palavra (" + vetorOrdenado[i] + ") encontrada!!\nLocalizada no índice " 
-								+ i + " do vetor.";
-					}
-				}
-				return "Palavra não existe no vetor";
 			}
 			
 			else if(vetorOrdenado[meio].length() < palavra.length()) {
