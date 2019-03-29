@@ -86,20 +86,6 @@ public class LerArquivo {
 			JOptionPane.showMessageDialog(null,"VetorOrdenado salvo em Txt com sucesso!");
     	
     }
-	/*public void escritor(String[] vetorOrdenado, String path) throws IOException {
-		  FileWriter endereco = new FileWriter(path);
-		  BufferedWriter buffWrite = new BufferedWriter(endereco);
-	      
-		  String linha = "";
-		  String tudo = "";
-		  for(int i = 0; i < vetorOrdenado.length - 1; i++) {
-			  linha = vetorOrdenado[i] + " |" + vetorOrdenado[i].length() + "|\n";
-			 // tudo = tudo + linha;
-			  buffWrite.append(linha);
-		  }
-		 
-	      buffWrite.close();
-	}*/
 		
 	public void VerPosicao(int posicao) {
 		for(int i = 0; i < posicao; i++) {
